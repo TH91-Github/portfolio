@@ -2,7 +2,7 @@ import styled from "styled-components";
 import * as S from "./MainStyled";
 
 function Visual(props){
-  // console.log(props)
+  console.log(props)
   return (
     <Test className={props.active? "on":"off"}>
       Visual
