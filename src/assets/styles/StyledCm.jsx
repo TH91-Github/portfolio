@@ -13,6 +13,19 @@ export const notice = css`
     content:'※';
   }
 `;
+export const fadeInY = (duration) => css`
+  animation: fadeIn ${duration ? duration : 1}s both;
+  @keyframes fadeIn {
+    0% {
+      transform: translateY(200px);
+      opacity:0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity:1;
+    }
+  }
+`;
 export const Button = styled.button.attrs({
   type:'button',
 })`

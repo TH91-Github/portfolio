@@ -1,4 +1,4 @@
-import { React, Children, cloneElement, isValidElement, useCallback, useEffect, useRef, useState, useMemo } from "react";
+import { React, Children, cloneElement, isValidElement, useCallback, useEffect, useRef, useState } from "react";
 
 const classOn = "observerOn";
 function Observer ({children, onClass, maintenance, percentage}) { // lazyload El , className , 관찰여부
@@ -32,17 +32,17 @@ function Observer ({children, onClass, maintenance, percentage}) { // lazyload E
     return () => { // clean up function
       observer && observer.disconnect()
     }
-  },[updateObserver])
+  },[updateObserver,percentage])
 
   const childrenWithProps = Children.map(children, (child, idx) => { // children on props 전달
     if (isValidElement(child)) {
       const observerlist = wrapEl.current && wrapEl.current.children;
       if(observerlist){
         const thisObserver = observerlist[idx];
+        console.log(viewIdx)
         if(thisObserver.classList.contains(classOn)){
+          thisObserver.classList.remove(classOn);
           return cloneElement(child, { view: true });
-        }else{
-          return cloneElement(child, { view: false });
         }
       }
       return child

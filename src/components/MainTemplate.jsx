@@ -2,15 +2,14 @@ import { colors } from "assets/styles/Variable";
 import styled from "styled-components";
 import Visual from "./main/Visual";
 import Observer from "./common/element/Observer";
+import PortfolioEnd from "./main/PortfolioEnd";
 
 function MainTemplate() {
   return (
     <MainWrap>
-
       <Observer>
-        <Visual number={1} />
-        <Visual number={2} />
-        <Visual number={3} />
+        <Visual />
+        <PortfolioEnd />
       </Observer>
     </MainWrap>
   )
