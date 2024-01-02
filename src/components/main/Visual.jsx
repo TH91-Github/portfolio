@@ -4,14 +4,14 @@ import Typing from "components/common/element/Typing";
 import { fadeInY } from "assets/styles/StyledCm";
 
 const VisualText = ["TAG를 입력중","TEXT","TEST"];
-function Visual({view}){
+function Visual({view, duration}){
+  console.log(duration)
   const [aniOn, setAniOn] = useState(false);
   const [nextStage, setNextStage] = useState(false);
   let textSpeed = 150;
   useEffect(()=>{
     if(view){
       setTimeout(()=>{
-        console.log("useEffect")
         setAniOn(true);
       },1500)
     } 
@@ -60,7 +60,7 @@ const TextTag = styled.span`
   color:#fff;
   opacity:0;
   &.on{
-    ${fadeInY(1)}
+    ${fadeInY(1.5)}
   }
 `;
 

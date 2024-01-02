@@ -4,12 +4,13 @@ import Visual from "./main/Visual";
 import Observer from "./common/element/Observer";
 import PortfolioEnd from "./main/PortfolioEnd";
 
+const aniDuration = 1500;
 function MainTemplate() {
   return (
     <MainWrap>
       <Observer>
-        <Visual />
-        <PortfolioEnd />
+        <Visual duration={aniDuration}/>
+        <PortfolioEnd duration={aniDuration}/>
       </Observer>
     </MainWrap>
   )

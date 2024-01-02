@@ -32,7 +32,7 @@ function Observer ({children, onClass, maintenance, percentage}) { // lazyload E
     return () => { // clean up function
       observer && observer.disconnect()
     }
-  },[updateObserver,percentage])
+  },[updateObserver,percentage]);
 
   const childrenWithProps = Children.map(children, (child, idx) => { // children on props 전달
     if (isValidElement(child)) {
@@ -48,7 +48,7 @@ function Observer ({children, onClass, maintenance, percentage}) { // lazyload E
       return child
     }
   });
-
+  
   return (
     <div ref={wrapEl}>
       {childrenWithProps} 
