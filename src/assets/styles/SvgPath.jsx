@@ -15,7 +15,6 @@ export const SvgArrow = ({...props}) => {
   </Svg>
 };
 
-
 // setting styled props {color} 
 export const SvgSetting = ({...props}) => {
   return <Svg {...props} viewBox="0 0 1024 1024">

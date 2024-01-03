@@ -13,19 +13,6 @@ export const notice = css`
     content:'※';
   }
 `;
-export const fadeInY = (duration, y) => css`
-  animation: fadeIn ${duration ? duration : 1}s both;
-  @keyframes fadeIn {
-    0% {
-      transform: translateY(${y ? y : 200}px);
-      opacity:0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity:1;
-    }
-  }
-`;
 
 // keyframes
 export const fadeIn = (xy, num) => keyframes`

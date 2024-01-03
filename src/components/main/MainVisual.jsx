@@ -54,14 +54,24 @@ const VisualTextBox = styled.div`
   transform: translateY(-50%);
   text-align:center;
 `;
-
 const TextScroll = styled.div`
   display:flex;
   flex-direction:column;
   position:absolute;
-  bottom:50px;
+  bottom:30px;
   left:50%;
   transform: translateX(-50%);
+  animation: textFadeIn 1s;
+  @keyframes textFadeIn {
+    0% {
+      opacity:0;
+      transform: translate(-50%, 100%);
+    }
+    100%{
+      opacity:1;
+      transform: translate(-50%, 0);
+    }
+  }
   &::before, &::after{
     position:absolute;
     left:50%;
@@ -72,17 +82,17 @@ const TextScroll = styled.div`
     content:"";
   }
   &::before{
-    bottom:-10px;
+    bottom:-5px;
     transform: translateX(calc(-50% - 4px)) rotate(-140deg);
     animation: arrowDownL 2s .1s infinite;
   }
   &::after{
-    bottom:-10px;
+    bottom:-5px;
     transform: translateX(calc(-50% + 4px)) rotate(-40deg);
     animation: arrowDownR 2s .1s infinite;
   }
   & > span {
-    position:relative;
+    padding-bottom:2px;
     font-size:14px;
     color:#fff;
     &::before, &::after{
@@ -92,15 +102,16 @@ const TextScroll = styled.div`
       height:2px;
       border-radius:3px;
       background:#fff;
+      opacity:0;
       content:"";
     }
     &::before{
-      bottom:-20px;
+      bottom:-15px;
       transform: translateX(calc(-50% - 4px)) rotate(-140deg);
       animation: arrowDownL 2s infinite;
     }
     &::after{
-      bottom:-20px;
+      bottom:-15px;
       transform: translateX(calc(-50% + 4px)) rotate(-40deg);
       animation: arrowDownR 2s infinite;
     }
