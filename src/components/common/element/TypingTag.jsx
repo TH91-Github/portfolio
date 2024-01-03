@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
  endTag: 텍스트 입력 시 닫기 태그 사용 여부
  endFunc: 텍스트 입력 후 반환
  fadeIn: 아래에서 위로 모션
- */
+*/
 function TypingTag({titData, view, typingOpt, delay, endTag, endFunc, fadeIn}){
   const [typeingOn, setAniOn] = useState(false);
   const closed = endTag ?? true;

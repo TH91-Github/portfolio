@@ -30,6 +30,13 @@ export const GlobalStyles = createGlobalStyle`
   .ani-ini {
     opacity:0;
   }
+  .blind {
+    position:absolute;
+    top:-99999px;
+    left:-9999px;
+    opacity:0;
+    text-indent:-9999px;
+  }
   ${media.mo}{
     .pc-br {
       display:none;
