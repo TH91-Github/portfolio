@@ -22,6 +22,5 @@ function MainTemplate() {
 export default MainTemplate;
 
 const MainWrap = styled.div`
-  width:100%;
-  
+ 
 `;

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
 import TypingTag from "components/common/element/TypingTag";
-import { SvgArrow } from "assets/styles/SvgPath";
 import { colors } from "assets/styles/Variable";
 
 const VisualText = ["TAG를 입력중","TEXT","TEST"];
@@ -43,7 +42,7 @@ export default MainVisual;
 const VisualWrap = styled.div`
   position:relative;
   width:100%;
-  height:100vh;
+  height:100svh;
   min-height:600px;
   background:${colors.bgBlack};
 `;

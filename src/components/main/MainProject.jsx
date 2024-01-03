@@ -1,16 +1,16 @@
 import styled from "styled-components";
-import * as S from "./Styled";
 import TypingTag from "components/common/element/TypingTag";
+import * as S from "./Styled";
 
-const VisualText = ["TEST"];
+const VisualText = ["TEST P"];
 const typingOpt = {
   fontSize:'48px',
   fontWeight: 600,
   speed: 150,
 }
-function MainSkills({view}) {
+function MainProject ({view}){
   return (
-    <SkillsWrap>
+    <ProjectWrap>
       <S.MainInner>
         <S.TitleBox>
           <TypingTag 
@@ -20,12 +20,12 @@ function MainSkills({view}) {
           />
         </S.TitleBox>
       </S.MainInner>
-    </SkillsWrap>
+    </ProjectWrap>
   )
 }
-export default MainSkills;
+export default MainProject;
 
-const SkillsWrap = styled.div`
-  height:100vh;
-  border:1px solid blue;
+const ProjectWrap = styled.div`
+  height:100svh;
+  border:1px solid green;
 `;

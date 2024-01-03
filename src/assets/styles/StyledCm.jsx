@@ -13,7 +13,6 @@ export const notice = css`
     content:'※';
   }
 `;
-
 // keyframes
 export const fadeIn = (xy, num) => keyframes`
   0%{
@@ -33,7 +32,10 @@ export const fadeIn = (xy, num) => keyframes`
     opacity:1;
   }
 `;
-
+// animation
+export const animation =(aniName, t,ttf,d,fm) => css`
+  animation: ${aniName} ${t ? t : '1'}s ${ttf ? ttf :'ease'} ${d ? d : 0}s ${fm ? fm : 'both'};
+`;
 export const Button = styled.button.attrs({
   type:'button',
 })`
