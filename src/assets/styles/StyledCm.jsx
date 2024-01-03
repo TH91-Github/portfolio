@@ -1,4 +1,4 @@
-import styled, {css} from 'styled-components';
+import styled, {css, keyframes} from 'styled-components';
 import { breakpoints, media} from './Variable';
 
 // css
@@ -13,11 +13,11 @@ export const notice = css`
     content:'※';
   }
 `;
-export const fadeInY = (duration) => css`
+export const fadeInY = (duration, y) => css`
   animation: fadeIn ${duration ? duration : 1}s both;
   @keyframes fadeIn {
     0% {
-      transform: translateY(200px);
+      transform: translateY(${y ? y : 200}px);
       opacity:0;
     }
     100% {
@@ -26,13 +26,34 @@ export const fadeInY = (duration) => css`
     }
   }
 `;
+
+// keyframes
+export const fadeIn = (xy, num) => keyframes`
+  0%{
+    transform: ${
+      xy === '-x'
+      ? `translateX(${num ? num*-1 : -50}px)`
+      : xy === 'x'
+      ? `translateX(${num ? num : 50}px)`
+      : xy === '-y'
+      ? `translateY(${num ? num*-1 : -50}px)`
+      : `translateY(${num ? num : 50}px)`
+    };
+    opacity:0;
+  }
+  100%{
+    transform: translate(0,0);
+    opacity:1;
+  }
+`;
+
 export const Button = styled.button.attrs({
   type:'button',
 })`
   display:inline-block;
   ${props => `
     ${props.$width && `width:${props.$width}`};
-    ${props.$height && `width:${props.$height}`};
+    ${props.$height && `height:${props.$height}`};
   `}
   cursor:pointer;
 `;

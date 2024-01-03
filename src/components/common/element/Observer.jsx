@@ -39,9 +39,7 @@ function Observer ({children, onClass, maintenance, percentage}) { // lazyload E
       const observerlist = wrapEl.current && wrapEl.current.children;
       if(observerlist){
         const thisObserver = observerlist[idx];
-        console.log(viewIdx)
         if(thisObserver.classList.contains(classOn)){
-          thisObserver.classList.remove(classOn);
           return cloneElement(child, { view: true });
         }
       }
@@ -50,7 +48,7 @@ function Observer ({children, onClass, maintenance, percentage}) { // lazyload E
   });
   
   return (
-    <div ref={wrapEl}>
+    <div ref={wrapEl} className="observerWrap">
       {childrenWithProps} 
     </div>
   )

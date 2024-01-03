@@ -55,11 +55,11 @@ function Typing({typingData, inputS, removeS, delay, infinite, completion}) { //
     }
   }
   const finish = () => {
-    completion && completion()
+    completion && completion();
   }
   const ini = () =>{
     setOnce(false);
-    text.length>0 && setText('')
+    text.length>0 && setText('');
     textInput();
   }
   once && ini();

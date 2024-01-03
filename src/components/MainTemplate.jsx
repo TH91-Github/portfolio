@@ -1,16 +1,20 @@
 import { colors } from "assets/styles/Variable";
 import styled from "styled-components";
-import Visual from "./main/Visual";
 import Observer from "./common/element/Observer";
-import PortfolioEnd from "./main/PortfolioEnd";
+import MainVisual from "./main/MainVisual";
+import MainAbout from "./main/MainAbout";
+import MainSkills from "./main/MainSkills";
+import MainEnd from "./main/MainEnd";
 
-const aniDuration = 1500;
+
 function MainTemplate() {
   return (
     <MainWrap>
-      <Observer>
-        <Visual duration={aniDuration}/>
-        <PortfolioEnd duration={aniDuration}/>
+      <Observer percentage={0.25}>
+        <MainVisual />
+        <MainAbout />
+        <MainSkills />
+        <MainEnd />
       </Observer>
     </MainWrap>
   )

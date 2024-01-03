@@ -44,7 +44,7 @@ export const GlobalStyles = createGlobalStyle`
   }
   /* 스크롤 막대 */
   body::-webkit-scrollbar-thumb {
-    background: ${colors.navy};
+    background: ${colors.bgBlack};
     border-radius: 5px;
   }
   /* 스크롤 막대 외부 */
