@@ -1,0 +1,30 @@
+// styled component Variable 동일하게.
+
+// Font Family
+$size: 16px;
+$weight:550;
+
+// 새로운
+$fontFamily: ('SUITE-Light','SUITE-Regular','SUITE-Medium','SUITE-SemiBold','SUITE-Bold','SUITE-ExtraBold','SUITE-Heavy');
+@each $name in $NfontFamily{
+  $i: index($NfontFamily, $name);
+  @include NfontFace($name, $i+2);
+}
+
+// Break Point (Desktop First 기준 내림차순 설정)
+$onlyPc: 1920px;
+$pc: 1440px;
+$table: 1140px;
+$mo: 768px;
+$onlyMo: 450px;
+
+// Color 
+$bgBlack: #242424;
+$bgWhite: #F0ECE5;
+
+// Line Color
+$lineColor: #dbdbdb;
+
+// transition
+$transitionB: all .3s;
+
