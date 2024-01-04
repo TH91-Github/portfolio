@@ -26,6 +26,8 @@ function MainProject ({view}){
 export default MainProject;
 
 const ProjectWrap = styled.div`
+  position:relative;
   height:100svh;
   border:1px solid green;
+  background:#fff;
 `;

@@ -19,7 +19,7 @@ function TypingTag({titData, view, typingOpt, delay, endTag, endFunc, fadeIn}){
         setAniOn(true);
       },delay ?? 1500)
     } 
-  },[view])
+  },[view, delay])
   return (
     <TitleTag className={`tag `+ (view ? 'ani': '')} 
       $fontSize={typingOpt.fontSize} 

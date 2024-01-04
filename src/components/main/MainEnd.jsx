@@ -25,5 +25,7 @@ const EndWrap = styled.div`
   display:flex;
   justify-content:center;
   align-items:center;
-  height:100vh;
+  position:relative;
+  height:100svh;
+  background:#fff;
 `;

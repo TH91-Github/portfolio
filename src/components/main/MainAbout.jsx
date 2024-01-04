@@ -6,9 +6,8 @@ import Typing from "components/common/element/Typing";
 import TypingTag from "components/common/element/TypingTag";
 import sample from 'assets/images/sample.png'
 
-
 const aboutTit = ["TEST"];
-const profileJob = ["TEST", "zzz"];
+const profileJob = ["jobasdgb", "zzz"];
 const profileText = ["TEXT, TEXT , TEXT, TEXT", "sss? dd?? GG? ZZ?? XX?", "zzzzzz"]
 const typingOpt = {
   fontSize: '48px',
@@ -16,7 +15,6 @@ const typingOpt = {
   speed: 150,
 }
 function MainAbout({ view }) {
-  console.log(view)
   return (
     <AboutWrap className="about">
       <S.MainInner>
@@ -36,15 +34,20 @@ function MainAbout({ view }) {
             </ProfileImg>
           </AboutProfile>
           <AboutInfo className="about__info">
-            <TextUp className={'text '+(view ? "ani":'')}><span>TEXT, TEXT, TEXT</span></TextUp>
-            <TextJob className="job-box">
-              <p className="job"><Typing typingData={profileJob} delay={1000} infinite={true} /></p>
+            <TextUp className="text"><span>TEXT, TEXT, TEXT</span></TextUp>
+            <TextJob className="text-job">
+              { 
+                view &&
+                <p className="job">
+                  <Typing typingData={profileJob} delay={2500} pauseTime={1000} infinite={true} />
+                </p> 
+              }
             </TextJob>
             {
               profileText.map((item, idx) => (
                 <TextUp 
-                  className={'text '+(view ? "ani":'')}
-                  $delay={(idx+1)*0.2}
+                  className="text"
+                  $delay={((idx+1)*0.2)+1}
                   key={idx}>
                   <span>{item}</span>
                 </TextUp>
@@ -59,16 +62,21 @@ function MainAbout({ view }) {
 export default MainAbout;
 
 const AboutWrap = styled.div`
-  position:relative;
+  position:sticky;
+  top:0;
+  min-height:100svh;
 `;
 const AboutCont = styled.div`
   display:flex;
   position:relative;
-  height:500px;
   margin-top:50px;
   opacity:0;
   &.on {
     ${SC.animation(SC.fadeIn, 1.5, 'ease', .5)}
+    .img::after, .img img, .text span,
+    .text-job::before, .text-job::after {
+      animation-play-state: running;
+    }
   }
   &>div{
     padding:50px;
@@ -84,7 +92,6 @@ const AboutProfile = styled.div`
   justify-content:center;
   position:relative;
   width:50%;
-  border:1px solid green;
 `;
 const ProfileImg = styled.div`
   position:relative;
@@ -136,17 +143,46 @@ const ImgBox = styled.span`
   position:relative;
   width:100%;
   height:100%;
+  &::after{
+    position:absolute;
+    z-index:2;
+    top:0;
+    right:0;
+    width:100%;
+    height:100%;
+    background:#242424;
+    animation: imgCover 1s 1s both;
+    animation-play-state: paused;
+    content:"";
+  }
+  @keyframes imgCover {
+    0%{
+      width:100%;
+    }
+    100%{
+      width:0%;
+    }
+  }
   img {
     display:block;
     width:100%;
     height:100%;
     object-fit:cover;
     object-position:top;
+    animation: imgAni 1s 1s both;
+    animation-play-state: paused;
+  }
+  @keyframes imgAni {
+    0%{
+      opacity:0;
+    }
+    100%{
+      opacity:1;
+    }
   }
 `;
 const AboutInfo = styled.div`
   width:50%;
-  border:1px solid blue;
 `;
 
 const TextJob = styled.div`
@@ -164,6 +200,8 @@ const TextJob = styled.div`
     font-wieght:900;
     line-height:80px;
     content:"[";
+    animation:upAni 1.2s 1.1s both;
+    animation-play-state: paused;
   }
   &::after{
     left: auto;
@@ -172,7 +210,12 @@ const TextJob = styled.div`
   }
   .job {
     font-size:56px;
+    font-weight:550;
     line-height:80px;
+  }
+  @keyframes upAni {
+    0% {transform:translateY(100px); opacity:0;}
+    100%{transform:translateY(0); opacity:1;}
   }
 `;
 const TextUp = styled.p`
@@ -182,12 +225,9 @@ const TextUp = styled.p`
   span {
     display:inline-block;
     opacity:0;
-  }
-  &.ani {
-    span{
-      animation:txt 1.2s both;
-      animation-delay: ${props => props.$delay || '0.1'}s;
-    }
+    animation:txt 1.2s both;
+    animation-delay: ${props => props.$delay || '1.1'}s;
+    animation-play-state: paused;
   }
   @keyframes txt {
     0% {transform:translateY(100px); opacity:0;}

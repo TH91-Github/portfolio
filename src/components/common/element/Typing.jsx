@@ -1,13 +1,14 @@
 import { useState } from "react";
 
-function Typing({typingData, inputS, removeS, delay, infinite, completion}) { // 텍스트, 입력 속도, 삭제 속도, 삭제되기까지, 반복
+function Typing({typingData, delay, inputS, removeS, pauseTime, infinite, completion}) { // 텍스트, 입력 속도, 삭제 속도, 삭제되기까지, 반복
   const [once, setOnce] = useState(true);
   const [text, setText] = useState('');
   const textData = typingData ?? [''];
+
   const typingOpt = { 
     s : inputS ?? 100, // 입력 속도
     r : removeS ?? 100, // 삭제 속도
-    d : delay ?? 500 , // 입력 후 삭제까지 시간
+    d : pauseTime ?? 500 , // 입력 후 삭제까지 시간
     i : infinite ?? false
   }
   let tNum = 0; // 텍스트 번호
@@ -60,7 +61,9 @@ function Typing({typingData, inputS, removeS, delay, infinite, completion}) { //
   const ini = () =>{
     setOnce(false);
     text.length>0 && setText('');
-    textInput();
+    setTimeout(()=>{
+      textInput();
+    },delay ?? 50);
   }
   once && ini();
   return( 
