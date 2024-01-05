@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 function Typing({typingData, delay, inputS, removeS, pauseTime, infinite, completion}) { // 텍스트, 입력 속도, 삭제 속도, 삭제되기까지, 반복
   const [once, setOnce] = useState(true);
   const [text, setText] = useState('');
-  const textData = typingData ?? [''];
+  const textData = useMemo(()=>{
+    return typingData ?? ['']
+  },[typingData]) 
 
   const typingOpt = { 
     s : inputS ?? 100, // 입력 속도
