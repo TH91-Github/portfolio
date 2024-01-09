@@ -1,50 +1,53 @@
 import styled from "styled-components";
-import * as SC from "assets/styles/StyledCm";
 import * as S from "./Styled";
 import TypingTag from "components/common/element/TypingTag";
-import { colors, transitions } from "assets/styles/Variable";
+import { colors } from "assets/styles/Variable";
 import { useState } from "react";
 import TabListBtn from "components/common/element/TabListBtn";
+import InfiniteText from "components/common/element/InfiniteText";
+import TabCont from "components/common/element/TabCont";
 
 const skillsTit = ["TEST SS"];
 const skillsData = [
   {
-    title:"skils-1",
-    desc:["TEST"]
+    title:"test-1",
+    desc:["TEST ESTSTESTTESTTESTTESTTESTTESTTESTTESTTESTTEST","TESTTESTTESTTESTTESTTEST"]
   },
   {
-    title:"skils-2",
+    title:"test-2",
     desc:["TEXT, TEXT"]
   },
   {
-    title:"skils-3",
+    title:"test-3",
     desc:["TESTSETSET SE"]
   },
   {
-    title:"skils-4",
+    title:"test-4",
     desc:["TESXT"]
   },
   {
-    title:"skils-5",
+    title:"test-5",
     desc:["STEST"]
   },
-]
-const typingOpt = {
-  fontSize:'48px',
-  fontWeight: 600,
-  speed: 150,
-  dark:true
-}
+];
+
 function MainSkills({view}) {
   const [activeNum, setActiveNum] = useState(0);
-
+  const typingOpt = {
+    fontSize:'48px',
+    fontWeight: 600,
+    speed: 150,
+    dark:true
+  }
+  const skillsTitleData = skillsData.map((item) => item.title);
   const activeIndex = (el,idx) => {
     setActiveNum(idx)
   }
+  console.log(view)
   return (
-    <SkillsWrap className="skills on">
+    <SkillsWrap className={'skills ' + (view ? 'observerOn on':'')}>
       <S.MainInner className="skills__inner">
-        <SkillsZone className="skills__zone">
+        <div className="skills__zone">
           <S.TitleBox className="skills__header">
             <TypingTag 
               titData={skillsTit}
@@ -55,35 +58,29 @@ function MainSkills({view}) {
           <SkillsCont className="skills__cont">
             {/* 텍스트 반복 ani 구간 */}
             <SkilsList className="skills__list">
-              --------------------------------
+              <InfiniteText textData={skillsTitleData} view={view} />
             </SkilsList>
             {/* 해당 텍스트 탭 info 구간 */}
-     
-            <TabWrap className="tab">
-              <TabListBtn tabData={skillsData} clickEvent={activeIndex}/>
-              <TabCont className="tab__cont">
-                {
-                  skillsData.map((item, idx) =>(
-                    <div 
-                      className={'tab__item '+(idx === activeNum ? 'active':'')} 
-                      key={idx}>
-                      <div className="tab__item__header">
-                        <p className="tab__item__header-tit">{item.title}</p>
-                      </div>
-                      <div className="tab__item__info">
-                        {
-                          item.desc.map((sItem, idx) => (
-                            <p className="txt" key={idx}>{sItem}</p>
-                          ))
-                        }
-                      </div>
-                    </div>
-                  ))
-                }
-              </TabCont>
-            </TabWrap>
+            <SkillsTabWrap className="tab">
+              {
+                view && 
+                  <>
+                    <TabListBtn
+                      tabData={skillsData} 
+                      clickEvent={activeIndex}
+                      animation={"fadeIn"}
+                      delay={1000}
+                      className="tab__btn" />
+                    <TabCont 
+                      tabData={skillsData} 
+                      active={activeNum}
+                      animation={"fadeIn"}
+                      delay={1000}/>
+                  </>
+              }
+            </SkillsTabWrap>
           </SkillsCont>
-        </SkillsZone>
+        </div>
       </S.MainInner>
     </SkillsWrap>
   )
@@ -91,59 +88,38 @@ function MainSkills({view}) {
 export default MainSkills;
 
 const SkillsWrap = styled.div`
+  display:flex;
+  align-items:center;
   position:relative;
-  height:100svh;
-  border:1px solid blue;
-  background:#fff;
-  .skills__inner {
-    padding-left:0;
-    padding-right:0;
-    transition:all 2s;
-  }
-  &.observerOn, &.on {
-    .skills__inner{
-      padding:100px 30px;
+  min-height:100svh;
+  background:${colors.bgBlack};
+  &.observerOn {
+    .skills__list{
+      opacity:1;
     }
-    .skills__zone{
-      padding:30px 0;
-      border-radius:20px;
-      background:${colors.bgBlack};
+    .infinite__list-inner {
+      &.original, &.clone{
+        animation-play-state: running;
+      }
     }
   }
 `;
-
-const SkillsZone = styled.div`
-  transition:all 2s;
-`;
-
 const SkillsCont = styled.div`
   margin-top:30px;
   color:#fff;
 `;
+
 const SkilsList = styled.div`
-  padding:30px;
+  padding:10px 0;
   border-radius:5px;
-  background:#fff;
+  opacity:0;
+  transition: 1s all 1s;
 `;
 
-const TabWrap = styled.div`
+const SkillsTabWrap = styled.div`
   margin-top:30px;
   padding:0 20px;
-`;
-const TabCont = styled.div`
-  margin-top:30px;
-  .tab__item {
-    display:none;
-    &.active {
-      display:block;
-    }
-    &__header {
-      &-tit{
-        font-size:21px;
-      }
-    }
-    &__info {
-      margin-top:30px;
-    }
+  .tab__cont {
+    margin-top:30px;
   }
 `;

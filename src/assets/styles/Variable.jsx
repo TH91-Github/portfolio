@@ -23,6 +23,11 @@ export const media = {
 export const colors = {
   bgBlack:"#242424",
   bgWhite:"#F0ECE5", 
+  bgBlue:"#020025",
+  blue:"#0461f5",
+  red: "#e8392c",
+  purple:"#8328df",
+  yellow:"#ffae00",
   // Line Color
   lineColor: "#dbdbdb",
 }

@@ -1,9 +1,8 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit'
 
-
 const allData = createSlice({
   name: "Data Load",
-  initialState: [],
+  initialState: ['default'],
   reducers: {
     sSetDataAll(state, propsName){
       // console.log(propsName)
@@ -14,7 +13,7 @@ const allData = createSlice({
 
 const windowW = createSlice({
   name: "Window width",
-  initialState: "test",
+  initialState: 0,
   reducers: {
     changeLocation(state, propsName){
       return state = propsName.payload;

@@ -4,7 +4,10 @@ const classOn = "observerOn";
 function Observer ({children, onClass, maintenance, percentage}) { // lazyload El , className , 관찰여부
   const wrapEl = useRef(null);
   const [viewIdx, setViewIdx] = useState(null);
+  
+  // 개선책 👉 순서를 배열로 담고 활성화된 번호가 없으면 추가 있으면 unobserve 
 
+  // DOM 조작 관련 & 테스트 & 리펙토링 필요 
   const updateObserver = useCallback((entries, observer) => {
     const observerArr = [...entries[0].target.parentElement.children]
     entries.forEach((entry) => {
