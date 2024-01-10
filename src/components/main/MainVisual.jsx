@@ -4,15 +4,15 @@ import TypingTag from "components/common/element/TypingTag";
 import { colors } from "assets/styles/Variable";
 
 const VisualText = ["TAG를 입력중","TEXT","TEST"];
-const typingOpt = {
-  fontSize:'96px',
-  fontWeight: 600,
-  speed: 150,
-  dark: true
-}
+
 function MainVisual({view}){
   const [nextStage, setNextStage] = useState(false);
-  
+  const typingOpt = {
+    fontSize:'96px',
+    fontWeight: 600,
+    speed: 150,
+    dark: true
+  }
   const tagAniEnd = () => {
     setNextStage(true);
   }

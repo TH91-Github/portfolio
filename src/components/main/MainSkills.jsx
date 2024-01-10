@@ -46,41 +46,37 @@ function MainSkills({view}) {
   console.log(view)
   return (
     <SkillsWrap className={'skills ' + (view ? 'observerOn on':'')}>
-      <S.MainInner className="skills__inner">
-        <div className="skills__zone">
-          <S.TitleBox className="skills__header">
-            <TypingTag 
-              titData={skillsTit}
-              view={view} 
-              typingOpt={typingOpt}
-            />
-          </S.TitleBox>
-          <SkillsCont className="skills__cont">
-            {/* 텍스트 반복 ani 구간 */}
-            <SkilsList className="skills__list">
-              <InfiniteText textData={skillsTitleData} view={view} />
-            </SkilsList>
-            {/* 해당 텍스트 탭 info 구간 */}
-            <SkillsTabWrap className="tab">
-              {
-                view && 
-                  <>
-                    <TabListBtn
-                      tabData={skillsData} 
-                      clickEvent={activeIndex}
-                      animation={"fadeIn"}
-                      delay={1000}
-                      className="tab__btn" />
-                    <TabCont 
-                      tabData={skillsData} 
-                      active={activeNum}
-                      animation={"fadeIn"}
-                      delay={1000}/>
-                  </>
-              }
-            </SkillsTabWrap>
-          </SkillsCont>
-        </div>
+      <S.MainInner>
+        <S.TitleBox className="skills__header">
+          <TypingTag 
+            titData={skillsTit}
+            view={view} 
+            typingOpt={typingOpt}
+          />
+        </S.TitleBox>
+        <SkillsCont className="skills__cont">
+          <SkilsList className="skills__list">
+            <InfiniteText textData={skillsTitleData} view={view} />
+          </SkilsList>
+          <SkillsTabWrap className="tab">
+            {
+              view && 
+                <>
+                  <TabListBtn
+                    tabData={skillsData} 
+                    clickEvent={activeIndex}
+                    animation={"fadeIn"}
+                    delay={1000}
+                    className="tab__btn" />
+                  <TabCont 
+                    tabData={skillsData} 
+                    active={activeNum}
+                    animation={"fadeIn"}
+                    delay={1000}/>
+                </>
+            }
+          </SkillsTabWrap>
+        </SkillsCont>
       </S.MainInner>
     </SkillsWrap>
   )

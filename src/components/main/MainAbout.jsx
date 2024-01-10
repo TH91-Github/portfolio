@@ -6,10 +6,11 @@ import Typing from "components/common/element/Typing";
 import TypingTag from "components/common/element/TypingTag";
 import sample from 'assets/images/sample.png'
 
+const aboutTit = ["TEST"];
+const profileJob = ["jobasdgb", "zzz"];
+const profileText = ["TEXT, TEXT , TEXT, TEXT", "sss? dd?? GG? ZZ?? XX?", "zzzzzz"];
+
 function MainAbout({ view }) {
-  const aboutTit = ["TEST"];
-  const profileJob = ["jobasdgb", "zzz"];
-  const profileText = ["TEXT, TEXT , TEXT, TEXT", "sss? dd?? GG? ZZ?? XX?", "zzzzzz"];
   const typingOpt = {
     fontSize: '48px',
     fontWeight: 600,

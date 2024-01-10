@@ -1,5 +1,5 @@
 import styled, {css, keyframes} from 'styled-components';
-import { breakpoints, media} from './Variable';
+import { breakPoints, media} from './Variable';
 
 // css
 export const notice = css`
@@ -59,7 +59,7 @@ export const BtnArticle = styled.div`
 
 export const InnerStyle = styled.div`
   width:100%;
-  max-width:${breakpoints.pc}px;
+  max-width:${breakPoints.pc}px;
   margin:0 auto;
   padding:0 30px;
   ${media.mo} {

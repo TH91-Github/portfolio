@@ -1,14 +1,14 @@
 import TypingTag from "components/common/element/TypingTag";
 import styled from "styled-components";
 
-
 const endText = ["감사합니다.", "TEXT"];
-const typingOpt = {
-  fontSize:'96px',
-  fontWeight: 600,
-  speed: 150,
-}
+
 function MainEnd({view}) {
+  const typingOpt = {
+    fontSize:'96px',
+    fontWeight: 600,
+    speed: 150,
+  }
   return (
     <EndWrap>
       <TypingTag 
