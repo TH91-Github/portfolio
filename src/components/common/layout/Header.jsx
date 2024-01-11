@@ -1,26 +1,26 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { colors, media, transitions } from "assets/styles/Variable";
 import * as SC from "assets/styles/StyledCm";
 import { useNavigate } from "react-router-dom";
 import { SvgCode } from "assets/styles/SvgPath";
 
-const categoryList = ["About","Project","Test"]
-let scrollY = 0;
-function Header () {
+
+function Header ({headeList}) {
   const navigate = useNavigate();
   const [scrollZero, setScrollZero] = useState(false);
+  let scrollY = useRef(0);
   // scroll
-  const eventScroll = () => {
-    scrollY = window.pageYOffset
-    scrollY > 0 ? setScrollZero(true) : setScrollZero(false)
-  };
+  const eventScroll = useCallback(() => {
+    scrollY.current = window.pageYOffset
+    scrollY.current > 0 ? setScrollZero(true) : setScrollZero(false)
+  },[]);
   useEffect(()=>{
     window.addEventListener("scroll", eventScroll);
     return () => {
       window.removeEventListener("scroll", eventScroll);
     };
-  },[])
+  },[eventScroll])
 
   const NavClick = () =>{
     console.log("Click");
@@ -34,12 +34,12 @@ function Header () {
         </MainBtn>
         <NavWrap>
           {
-            categoryList.map((item,idx) => 
-              <NavBtn
+            headeList.map((item,idx) => 
+              idx > 0 && <NavBtn
                 $scrollZero={scrollZero}
                 onClick={() => NavClick()}
                 key={idx}>
-                {item}
+                {item.title}
               </NavBtn>
             )
           }

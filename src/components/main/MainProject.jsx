@@ -1,9 +1,11 @@
+import { useState } from "react";
+
 import styled from "styled-components";
 import TypingTag from "components/common/element/TypingTag";
 import * as S from "./Styled";
 import MainProjectSwiper from "./MainProjectSwiper";
 import ProjectPopup from "./ProjectPopup";
-import { useState } from "react";
+import Popup from "components/common/element/Popup";
 
 const projectTit = ["TEST P"];
 const projectListData = [
@@ -70,7 +72,11 @@ function MainProject ({view}){
             />
           </ProjectList>
           {
-            isPopup && <ProjectPopup popupData={selectProject} />
+            isPopup && 
+            <Popup popupOn={setPopup}> 
+              <ProjectPopup popupData={selectProject}/>
+            </Popup>
+            // isPopup && <ProjectPopup popupData={selectProject} popupOn={setPopup}/>
           }
         </ProjectCont>
       </S.MainInner>

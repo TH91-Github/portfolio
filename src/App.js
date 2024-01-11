@@ -6,7 +6,24 @@ import { isMobileChk } from "utils/common";
 import { GlobalStyles } from 'assets/styles/GlobalStyles';
 import Header from 'components/common/layout/Header';
 
-
+const MainList = [
+  {
+    id:1,
+    title:"Visual"
+  },
+  {
+    id:2,
+    title:"About"
+  },
+  {
+    id:3,
+    title:"Skills"
+  },
+  {
+    id:4,
+    title:"Project"
+  },
+]
 function App() {
   const dispatch = useDispatch();
   // Resize
@@ -14,7 +31,6 @@ function App() {
     let moState = isMobileChk();
     dispatch(sSetMobileChk(moState))
   },[dispatch])
-
   useEffect(() => {
     reSizesEvent();
     window.addEventListener("resize", reSizesEvent);
@@ -25,8 +41,8 @@ function App() {
   return (
     <div className="App">
       <GlobalStyles />
-      <Header />
-      <Outlet />
+      <Header headeList={MainList}/>
+      <Outlet context={{MainList}}/>
     </div>
   );
 }

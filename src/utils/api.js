@@ -16,7 +16,6 @@ export const postAxios = async(SERVER_URL, postData) => {
 export const removeAxios = async(SERVER_URL, delData) => {
   await axios.delete(SERVER_URL , delData)
 }
-
 export const putAxios = async(SERVER_URL, putData) => {
   await axios.put(SERVER_URL , putData)
 }

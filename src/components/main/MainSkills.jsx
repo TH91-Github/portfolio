@@ -43,7 +43,6 @@ function MainSkills({view}) {
   const activeIndex = (el,idx) => {
     setActiveNum(idx)
   }
-  console.log(view)
   return (
     <SkillsWrap className={'skills ' + (view ? 'observerOn on':'')}>
       <S.MainInner>

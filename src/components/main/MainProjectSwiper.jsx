@@ -9,7 +9,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 function MainProjectSwiper ({swiperData, swiperClick}){
-  const [isFocus, setIsFocus] = useState(0);
+  const [isFocus, setIsFocus] = useState('');
   const SwiperWrap = useRef(null);
   useEffect(()=>{
     const swiper = SwiperWrap.current.swiper;
@@ -30,6 +30,7 @@ function MainProjectSwiper ({swiperData, swiperClick}){
         ref={SwiperWrap}
         slidesPerView={'auto'}
         spaceBetween={20}
+        grabCursor={true}
         pagination={{
           clickable: true,
         }}
@@ -56,7 +57,7 @@ function MainProjectSwiper ({swiperData, swiperClick}){
                 }
                 
               </ThumbnailImg>
-              <div className="btn-article">
+              <div className="btn-wrap">
                 <PopupBtn 
                   type="button"
                   onFocus={(e) => focusIn(idx)}
@@ -87,7 +88,7 @@ const ProjectSwiper = styled(Swiper)`
     font-size:14px;
     color:${colors.subTextColor};
   }
-  .btn-article{
+  .btn-wrap{
     margin-top:30px;
   }
   .swiper-pagination {
@@ -208,6 +209,7 @@ const ThumbnailImg = styled.div`
     height:100%;
     justify-content:center;
     align-items:center;
+    border-radius:10px;
     background:${colors.bgBlack};
     &>span{
       font-size:32px;
