@@ -23,7 +23,8 @@ export const media = {
 
 export const colors = {
   bgBlack:"#242424",
-  bgWhite:"#F0ECE5", 
+  bgWhite:"#f1f1f1", 
+  bgGary:"#dde0e7",
   bgBlue:"#020025",
   blue:"#0461f5",
   red: "#e8392c",

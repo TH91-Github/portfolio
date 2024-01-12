@@ -22,9 +22,6 @@ function Popup ({ children, popupOn, ...props }){
         </CloseBtn>
       </PopupInner>
       <Dimmed onClick={()=>popupClosed()}/>
-
-      
-
     </PopupLayer>
   )
 }

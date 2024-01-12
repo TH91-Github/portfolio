@@ -13,6 +13,9 @@ export const notice = css`
     content:'※';
   }
 `;
+export const insetShadow = css`
+  box-shadow:inset 5px 5px 10px -3px rgba(0,0,0,.5), inset -5px -5px 10px 2px rgba(255,255,255,.9);
+`;
 // keyframes
 export const fadeIn = (xy, num) => keyframes`
   0%{

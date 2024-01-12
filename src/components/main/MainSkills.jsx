@@ -31,7 +31,7 @@ const skillsData = [
   },
 ];
 
-function MainSkills({view}) {
+function MainSkills({sectionTitle, view}) {
   const [activeNum, setActiveNum] = useState(0);
   const typingOpt = {
     fontSize:'48px',
@@ -44,7 +44,7 @@ function MainSkills({view}) {
     setActiveNum(idx)
   }
   return (
-    <SkillsWrap className={'skills ' + (view ? 'observerOn on':'')}>
+    <SkillsWrap id={sectionTitle.title} className={'skills ' + (view ? 'observerOn on':'')}>
       <S.MainInner>
         <S.TitleBox className="skills__header">
           <TypingTag 

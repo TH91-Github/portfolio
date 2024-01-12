@@ -10,14 +10,14 @@ const aboutTit = ["TEST"];
 const profileJob = ["jobasdgb", "zzz"];
 const profileText = ["TEXT, TEXT , TEXT, TEXT", "sss? dd?? GG? ZZ?? XX?", "zzzzzz"];
 
-function MainAbout({ view }) {
+function MainAbout({ sectionTitle, view }) {
   const typingOpt = {
     fontSize: '48px',
     fontWeight: 600,
     speed: 150,
   }
   return (
-    <AboutWrap className="about">
+    <AboutWrap id={sectionTitle.title} className="about">
       <S.MainInner>
         <S.TitleBox className="about__header">
           <TypingTag

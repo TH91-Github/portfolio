@@ -40,8 +40,8 @@ const projectListData = [
     date:"2024-01-01"
   },
 ]
-function MainProject ({view}){
-  const [isPopup, setPopup] = useState(false);
+function MainProject ({sectionTitle, view}){
+  const [isPopup, setPopup] = useState(true);
   const [selectNum, setSelectNum] = useState('');
   const [selectProject, setSelectProject] = useState('');
   const typingOpt = {
@@ -55,7 +55,7 @@ function MainProject ({view}){
     setPopup(true);
   }
   return (
-    <ProjectWrap className="project">
+    <ProjectWrap id={sectionTitle.title} className="project">
       <S.MainInner className="project__inner">
         <S.TitleBox className="project__header">
           <TypingTag 
