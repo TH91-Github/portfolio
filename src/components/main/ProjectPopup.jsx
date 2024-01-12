@@ -8,13 +8,13 @@ function ProjectPopup ({popupData}){
 
   console.log(popupData)
   return(
-    <PopupWrap>
+    <div>
       <PopupHead className="popup__head">
         <p className="tit">Title</p>
         <div className="desc">
           설명을 입력하는 곳
         </div>
-        <div className="project__status">
+        <div className="project-status">
           <span className="icon"></span>
           <p>🔗: </p> 
           {/* 리뉴얼 or 존재하지 않습니다. https://주소 */}
@@ -61,18 +61,27 @@ function ProjectPopup ({popupData}){
           </div>
         </div>
       </PopupCont>
-    </PopupWrap>
+    </div>
   )
 }
 export default ProjectPopup;
 
 // 부모 기준 임시 scss로 선 진행
-const PopupWrap = styled.div` 
-  border:1px solid blue;
-`;
 const PopupHead = styled.div`
   padding:0 30px;
   text-align:center;
+  .tit {
+    font-size:36px;
+    font-weight:800;
+  }
+  .desc{
+    margin-top:10px;
+    font-size:14px;
+    color:${colors.subTextColor};
+  }
+  .project-status{
+    margin-top:10px;
+  }
 `;
 const PopupCont = styled.div`
   display:flex;

@@ -41,7 +41,7 @@ const projectListData = [
   },
 ]
 function MainProject ({sectionTitle, view}){
-  const [isPopup, setPopup] = useState(true);
+  const [isPopup, setPopup] = useState(false);
   const [selectNum, setSelectNum] = useState('');
   const [selectProject, setSelectProject] = useState('');
   const typingOpt = {

@@ -34,6 +34,16 @@ const PopupLayer = styled.div`
   left:0;
   width:100%;
   height:100%;
+  opacity:0;
+  animation:PopupOn .8s both;
+  @keyframes PopupOn {
+    0%{
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
 `;
 const PopupInner = styled.div`
   position:absolute;
@@ -45,8 +55,8 @@ const PopupInner = styled.div`
   height:80%;
   min-height:500px;
   padding:30px;
+  border-radius:10px;
   background:#fff;
-  border:1px solid red;
   transform: translate(-50%, -50%);
 `;
 
