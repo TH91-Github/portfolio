@@ -1,9 +1,11 @@
+import { useSelector } from "react-redux";
+import Typing from "components/common/element/Typing";
+import TypingTag from "components/common/element/TypingTag";
 import styled from "styled-components";
 import * as S from "./Styled";
 import * as SC from "assets/styles/StyledCm";
 import { colors, media } from "assets/styles/Variable";
-import Typing from "components/common/element/Typing";
-import TypingTag from "components/common/element/TypingTag";
+
 import sample from 'assets/images/sample.png'
 
 const aboutTit = ["TEST"];
@@ -11,8 +13,9 @@ const profileJob = ["jobasdgb", "zzz"];
 const profileText = ["TEXT, TEXT , TEXT, TEXT", "sss? dd?? GG? ZZ?? XX?", "zzzzzz"];
 
 function MainAbout({ sectionTitle, view }) {
+  const isMobile = useSelector((state) => state.mobileChk);
   const typingOpt = {
-    fontSize: '48px',
+    fontSize: isMobile? '32px': '48px',
     fontWeight: 600,
     speed: 150,
   }
@@ -63,9 +66,11 @@ function MainAbout({ sectionTitle, view }) {
 export default MainAbout;
 
 const AboutWrap = styled.div`
-  position:sticky;
-  top:0;
-  min-height:100svh;
+  ${media.pc}{
+    position:sticky;
+    top:0;
+    min-height:100svh;
+  }
 `;
 const AboutCont = styled.div`
   display:flex;
@@ -80,6 +85,7 @@ const AboutCont = styled.div`
     }
   }
   &>div{
+    width:50%;
     padding:50px;
   }
   ${media.tab}{
@@ -87,12 +93,19 @@ const AboutCont = styled.div`
       padding:30px;
     }
   }
+  ${media.mo}{
+    display:block;
+    margin-top:30px;
+    &>div{
+      width:100%;
+      padding:0;
+    }
+  }
 `;
 const AboutProfile = styled.div`
   display:flex;
   justify-content:center;
   position:relative;
-  width:50%;
 `;
 const AboutProfileImg = styled.div`
   position:relative;
@@ -186,9 +199,11 @@ const AboutImgBox = styled.span`
   }
 `;
 const AboutInfo = styled.div`
-  width:50%;
+  ${media.mo}{
+    margin-top:30px;
+    text-align:center;
+  }
 `;
-
 const AboutTextJob = styled.div`
   display:inline-block;
   overflow:hidden;
@@ -221,6 +236,16 @@ const AboutTextJob = styled.div`
   @keyframes upAni {
     0% {transform:translateY(100px); opacity:0;}
     100%{transform:translateY(0); opacity:1;}
+  }
+  ${media.mo}{
+    height:56px;
+    &::before, &::after{
+      line-height:56px;
+    }
+    .job {
+      font-size:42px;
+      line-height:56px;
+    }
   }
 `;
 const AboutTextUp = styled.p`

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import TypingTag from "components/common/element/TypingTag";
 import { colors } from "assets/styles/Variable";
@@ -7,8 +8,9 @@ const VisualText = ["TAG를 입력중","TEXT","TEST"];
 
 function MainVisual({view}){
   const [nextStage, setNextStage] = useState(false);
+  const isMobile = useSelector((state) => state.mobileChk);
   const typingOpt = {
-    fontSize:'96px',
+    fontSize:isMobile? '42px':'96px',
     fontWeight: 600,
     speed: 150,
     dark: true

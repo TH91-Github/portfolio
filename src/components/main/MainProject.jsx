@@ -1,11 +1,12 @@
 import { useState } from "react";
-
-import styled from "styled-components";
-import TypingTag from "components/common/element/TypingTag";
-import * as S from "./Styled";
+import { useSelector } from "react-redux";
 import MainProjectSwiper from "./MainProjectSwiper";
 import ProjectPopup from "./ProjectPopup";
+import TypingTag from "components/common/element/TypingTag";
 import Popup from "components/common/element/Popup";
+import styled from "styled-components";
+import * as S from "./Styled";
+
 
 const projectTit = ["TEST P"];
 const projectListData = [
@@ -44,8 +45,9 @@ function MainProject ({sectionTitle, view}){
   const [isPopup, setPopup] = useState(false);
   const [selectNum, setSelectNum] = useState('');
   const [selectProject, setSelectProject] = useState('');
+  const isMobile = useSelector((state) => state.mobileChk);
   const typingOpt = {
-    fontSize:'48px',
+    fontSize: isMobile? '32px': '48px',
     fontWeight: 600,
     speed: 150,
   }

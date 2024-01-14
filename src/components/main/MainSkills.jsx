@@ -1,11 +1,13 @@
-import styled from "styled-components";
-import * as S from "./Styled";
-import TypingTag from "components/common/element/TypingTag";
-import { colors } from "assets/styles/Variable";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import TabListBtn from "components/common/element/TabListBtn";
 import InfiniteText from "components/common/element/InfiniteText";
 import TabCont from "components/common/element/TabCont";
+import TypingTag from "components/common/element/TypingTag";
+
+import styled from "styled-components";
+import * as S from "./Styled";
+import { colors, media } from "assets/styles/Variable";
 
 const skillsTit = ["TEST SS"];
 const skillsData = [
@@ -33,8 +35,9 @@ const skillsData = [
 
 function MainSkills({sectionTitle, view}) {
   const [activeNum, setActiveNum] = useState(0);
+  const isMobile = useSelector((state) => state.mobileChk);
   const typingOpt = {
-    fontSize:'48px',
+    fontSize: isMobile? '32px': '48px',
     fontWeight: 600,
     speed: 150,
     dark:true
@@ -86,7 +89,6 @@ const SkillsWrap = styled.div`
   display:flex;
   align-items:center;
   position:relative;
-  min-height:100svh;
   background:${colors.bgBlack};
   &.observerOn {
     .skills__list{
@@ -97,6 +99,9 @@ const SkillsWrap = styled.div`
         animation-play-state: running;
       }
     }
+  }
+  ${media.pc}{
+    min-height:100svh;
   }
 `;
 const SkillsCont = styled.div`
@@ -116,5 +121,8 @@ const SkillsTabWrap = styled.div`
   padding:0 20px;
   .tab__cont {
     margin-top:30px;
+  }
+  ${media.mo}{
+    padding:0;
   }
 `;

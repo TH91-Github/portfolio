@@ -1,11 +1,13 @@
 import TypingTag from "components/common/element/TypingTag";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 
 const endText = ["감사합니다.", "TEXT"];
 
 function MainEnd({view}) {
+  const isMobile = useSelector((state) => state.mobileChk);
   const typingOpt = {
-    fontSize:'96px',
+    fontSize:isMobile? '42px':'96px',
     fontWeight: 600,
     speed: 150,
   }

@@ -1,3 +1,4 @@
+import { media } from "assets/styles/Variable";
 import styled from "styled-components";
 
 // text size 및 반복 수가 적을 경우 예외 처리
@@ -51,6 +52,9 @@ const InfiniteWrap = styled.div`
     right:-2px;
     transform: scaleX(-1);
   }
+  ${media.mo}{
+    height:70px;
+  }
 `;
 const TextBox = styled.div`
   display:flex;
@@ -87,4 +91,10 @@ const TextBox = styled.div`
       transform: translateX(0%);
     }
   }
-`
+  ${media.mo}{
+    p{
+      font-size:56px;
+      line-height:70px;
+    }
+  }
+`;

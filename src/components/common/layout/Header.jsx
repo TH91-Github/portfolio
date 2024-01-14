@@ -5,7 +5,6 @@ import * as SC from "assets/styles/StyledCm";
 import { useNavigate } from "react-router-dom";
 import { SvgCode } from "assets/styles/SvgPath";
 
-
 function Header ({headeList}) {
   const navigate = useNavigate();
   const [scrollZero, setScrollZero] = useState(false);
@@ -68,7 +67,7 @@ const HeaderWrap = styled.div`
     color:${colors.bgBlack};
   }
   ${media.mo} {
-    height:70px;
+    height:60px;
   }
 `;
 const HeaderInner = styled(SC.InnerStyle)`
@@ -91,6 +90,9 @@ const Tit = styled.h1`
   font-size:24px;
   font-weight:700;
   letter-spacing:-0.25px;
+  ${media.mo}{
+    font-size: 21px;
+  }
 `;
 const NavWrap = styled.div`
   display:flex;
@@ -105,5 +107,8 @@ const NavBtn = styled(SC.Button)`
   &:hover, &:focus{
     background:${props => props.$scrollZero ? colors.bgBlack : '#fff'};
     color:${props => props.$scrollZero ? '#fff' : colors.bgBlack};
+  }
+  ${media.mo}{
+    font-size: 16px;
   }
 `;

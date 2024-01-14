@@ -1,5 +1,5 @@
 import * as SC from "assets/styles/StyledCm";
-import { colors, transitions } from "assets/styles/Variable";
+import { colors, media, transitions } from "assets/styles/Variable";
 import styled from "styled-components";
 
 function TabListBtn ({tabData, clickEvent, animation, delay}) { // animation, delay: 
@@ -36,16 +36,21 @@ export default TabListBtn;
 
 const TabBtnList = styled.div`
   &.fadeIn {
-    color:;
     opacity:0;
     animation: ${SC.fadeIn} 1s ${props => props.$delay}s both;
+  }
+  ${media.mo}{
+    overflow-x:auto;
   }
 `;
 const TabUl = styled.ul`
   display:flex;
-  justify-content:center;
   gap: ${props => props.$gap || '10px'};
+  ${media.pc}{
+    justify-content:center;
+  }
 `;
+
 const TabBtn = styled(SC.Button)`
   position:relative;
   padding:10px 15px;
@@ -56,5 +61,8 @@ const TabBtn = styled(SC.Button)`
     border-color:${colors.blue};
     background:${colors.bgWhite};
     color:${colors.blue};
+  }
+  ${media.mo}{
+    white-space: nowrap;
   }
 `;

@@ -66,7 +66,7 @@ export const InnerStyle = styled.div`
   margin:0 auto;
   padding:0 30px;
   ${media.mo} {
-    padding: 0 20px;
+    padding: 0 15px;
   }
 `;
 
