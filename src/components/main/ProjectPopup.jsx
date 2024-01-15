@@ -1,6 +1,6 @@
 
 import * as SC from "assets/styles/StyledCm";
-import { colors } from "assets/styles/Variable";
+import { colors, media } from "assets/styles/Variable";
 import styled from "styled-components";
 
 
@@ -8,7 +8,7 @@ function ProjectPopup ({popupData}){
 
   console.log(popupData)
   return(
-    <div>
+    <PopupWrap>
       <PopupHead className="popup__head">
         <p className="tit">Title</p>
         <div className="desc">
@@ -53,6 +53,7 @@ function ProjectPopup ({popupData}){
         <div className="popup__cont-item review">
           <div className="review-box">
             <p className="tit"><span>Tit</span></p>
+            {/* 배열 */}
             <p className="txt">sdfsdfsdfsdfsdf</p>
           </div>
           <div className="review-box">
@@ -61,11 +62,16 @@ function ProjectPopup ({popupData}){
           </div>
         </div>
       </PopupCont>
-    </div>
+    </PopupWrap>
   )
 }
 export default ProjectPopup;
-
+const PopupWrap = styled.div`
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  height:100%;
+`;
 // 부모 기준 임시 scss로 선 진행
 const PopupHead = styled.div`
   padding:0 30px;
@@ -82,10 +88,19 @@ const PopupHead = styled.div`
   .project-status{
     margin-top:10px;
   }
+  ${media.mo}{
+    max-height:100px;
+    .tit {
+      font-size:28px;
+    }
+  }
 `;
 const PopupCont = styled.div`
+  overflow-y:auto;
+  flex-grow:1;
   display:flex;
   flex-wrap:wrap;
+  
   gap:20px;
   position:relative;
   margin-top:30px;
@@ -94,9 +109,9 @@ const PopupCont = styled.div`
   background:${colors.bgWhite};
   ${SC.insetShadow}
   .popup__cont-item {
+    align-self : flex-start;
     position:relative;
     width:calc((100% - 20px) / 2);
-    height:100%;
     padding-left:50px;
     &::before {
       position:absolute;
@@ -171,6 +186,44 @@ const PopupCont = styled.div`
         margin-top:10px;
         &:first-child {
           margin-top:0;
+        }
+      }
+    }
+  }
+  ${media.mo}{
+    margin-top:20px;
+    .popup__cont-item {
+      width:100%;
+      height:auto;
+      padding-left:45px;
+      &::before{
+        left:12px;
+        width:8px;
+      }
+      &::after{
+        width:30px;
+        height:30px;
+      }
+      .tit{
+        margin-bottom:8px;
+        font-size:18px;
+        line-height:30px;
+      }
+      .detail {
+        &__lists{
+          &-item {
+            margin-top:8px;
+            &:first-child{
+              margin-top:0;
+            }
+          }
+          .tit-s {
+            &::before {
+              left:12px;
+              width:6px;
+              height:9px;
+            }
+          }
         }
       }
     }

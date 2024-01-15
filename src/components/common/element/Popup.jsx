@@ -1,7 +1,7 @@
 import { Children, cloneElement, isValidElement } from "react";
 import styled from "styled-components";
 import { Button } from "assets/styles/StyledCm";
-import { colors, transitions } from "assets/styles/Variable";
+import { colors, media, transitions } from "assets/styles/Variable";
 
 function Popup ({ children, popupOn, ...props }){
   const popupClosed = () => { // 닫기
@@ -58,6 +58,12 @@ const PopupInner = styled.div`
   border-radius:10px;
   background:#fff;
   transform: translate(-50%, -50%);
+  ${media.mo}{
+    width:calc(100% - 30px);
+    min-width:auto;
+    height:calc(100% - 30px);
+    padding:15px;
+  }
 `;
 
 const CloseBtn = styled(Button)`
@@ -96,6 +102,10 @@ const CloseBtn = styled(Button)`
     &::after{
       transform: translateY(-50%) rotate(-45deg) ;
     }
+  }
+  ${media.mo}{
+    top:15px;
+    right:15px;
   }
 `;
 

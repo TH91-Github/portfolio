@@ -49,10 +49,10 @@ function MainProjectSwiper ({swiperData, swiperClick}){
               </Number>
               <p className="tit">{item.title}</p>
               <p className="date">{item.date}</p>
-              <ThumbnailImg className="thumbnail">
+              <ThumbnailImg className="thumbnail" $imgBg={item.img.bg && item.img.bg}>
                 {
                   item.img 
-                  ? <img src={item.img} alt={item.title} />
+                  ? <img src={item.img.src} alt={item.title} />
                   : <div className="substitution"><span>{item.title}</span></div>
                 }
                 
@@ -197,6 +197,11 @@ const ThumbnailImg = styled.div`
   margin-top:10px;
   padding-bottom:100%;
   border-radius:10px;
+  ${props => props.$imgBg && `background:${props.$imgBg === 'dark' ? '#000': '#fff'};`}
+  & > img {
+    width:auto;
+    max-width:100%;
+  }
   & > img, .substitution {
     position:absolute;
     top:50%;

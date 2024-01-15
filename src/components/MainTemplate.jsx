@@ -30,4 +30,5 @@ const MainWrap = styled.div`
   width:100%;
   max-width:${breakPoints.maxPc}px;
   min-width:${breakPoints.minMo}px;
+  margin:0 auto;
 `;
