@@ -4,7 +4,7 @@ import styled from "styled-components";
 import TypingTag from "components/common/element/TypingTag";
 import { colors } from "assets/styles/Variable";
 
-const VisualText = ["TAG를 입력중","TEXT","TEST"];
+const VisualText = ["TAG를 입력중","TEXT","Portfolio"];
 
 function MainVisual({view}){
   const [nextStage, setNextStage] = useState(false);

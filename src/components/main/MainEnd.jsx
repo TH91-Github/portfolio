@@ -2,7 +2,7 @@ import TypingTag from "components/common/element/TypingTag";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 
-const endText = ["감사합니다.", "TEXT"];
+const endText = ["감사합니다.", "/Portfolio"];
 
 function MainEnd({view}) {
   const isMobile = useSelector((state) => state.mobileChk);
@@ -17,6 +17,7 @@ function MainEnd({view}) {
         titData={endText}
         view={view} 
         typingOpt={typingOpt}
+        endTag={false}
       />
     </EndWrap>
   )

@@ -55,7 +55,6 @@ function MainProjectSwiper ({swiperData, swiperClick}){
                   ? <img src={item.img.src} alt={item.title} />
                   : <div className="substitution"><span>{item.title}</span></div>
                 }
-                
               </ThumbnailImg>
               <div className="btn-wrap">
                 <PopupBtn 
@@ -198,6 +197,7 @@ const ThumbnailImg = styled.div`
   padding-bottom:100%;
   border-radius:10px;
   ${props => props.$imgBg && `background:${props.$imgBg === 'dark' ? '#000': '#fff'};`}
+  box-shadow:0px 0px 3px rgba(0, 0, 0, 0.2);
   & > img {
     width:auto;
     max-width:100%;

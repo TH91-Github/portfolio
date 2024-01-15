@@ -9,26 +9,42 @@ import styled from "styled-components";
 import * as S from "./Styled";
 import { colors, media } from "assets/styles/Variable";
 
-const skillsTit = ["TEST SS"];
+const skillsTit = ["SKILLS"];
 const skillsData = [
   {
-    title:"test-1",
+    title:"HTML",
     desc:["TEST ESTSTESTTESTTESTTESTTESTTESTTESTTESTTESTTEST","TESTTESTTESTTESTTESTTEST"]
   },
   {
-    title:"test-2",
+    title:"CSS",
     desc:["TEXT, TEXT"]
   },
   {
-    title:"test-3",
+    title:"SCSS",
     desc:["TESTSETSET SE"]
   },
   {
-    title:"test-4",
+    title:"JavaScript",
     desc:["TESXT"]
   },
   {
-    title:"test-5",
+    title:"Jquery",
+    desc:["STEST"]
+  },
+  {
+    title:"VUE",
+    desc:["STEST"]
+  },
+  {
+    title:"React",
+    desc:["STEST"]
+  },
+  {
+    title:"Git",
+    desc:["STEST"]
+  },
+  {
+    title:"웹표준&웹접근성",
     desc:["STEST"]
   },
 ];
@@ -63,19 +79,19 @@ function MainSkills({sectionTitle, view}) {
           <SkillsTabWrap className="tab">
             {
               view && 
-                <>
-                  <TabListBtn
-                    tabData={skillsData} 
-                    clickEvent={activeIndex}
-                    animation={"fadeIn"}
-                    delay={1000}
-                    className="tab__btn" />
-                  <TabCont 
-                    tabData={skillsData} 
-                    active={activeNum}
-                    animation={"fadeIn"}
-                    delay={1000}/>
-                </>
+              <>
+                <TabListBtn
+                  tabData={skillsData} 
+                  clickEvent={activeIndex}
+                  animation={"fadeIn"}
+                  delay={1000}
+                  className="tab__btn" />
+                <TabCont 
+                  tabData={skillsData} 
+                  active={activeNum}
+                  animation={"fadeIn"}
+                  delay={1000}/>
+              </>
             }
           </SkillsTabWrap>
         </SkillsCont>
