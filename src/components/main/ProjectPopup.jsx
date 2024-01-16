@@ -3,58 +3,64 @@ import * as SC from "assets/styles/StyledCm";
 import { colors, media } from "assets/styles/Variable";
 import styled from "styled-components";
 
-
+// 기본 데이터 값
+const projectDefalut = {title:"Title", desc:"TEST TEST", img:"없음",company:"회사 입력", link:"URL", people:"투입 인원", participation:"참여도",  date:"기간", skills:["TEST","기술"], contents:["작업내용"], review:["TEST"],};
 function ProjectPopup ({popupData}){
-
+  const data = popupData ?? projectDefalut
   console.log(popupData)
   return(
     <PopupWrap>
       <PopupHead className="popup__head">
-        <p className="tit">Title</p>
+        <p className="tit">{data.title}</p>
         <div className="desc">
-          설명을 입력하는 곳
+          {data.desc}
         </div>
         <div className="project-status">
           <span className="icon"></span>
-          <p>🔗: </p> 
-          {/* 리뉴얼 or 존재하지 않습니다. https://주소 */}
+          <p>🔗: {data.link}</p> 
         </div>
       </PopupHead>
       <PopupCont className="popup__cont">
         <div className="popup__cont-item detail">
           <p className="tit">
-            <span className="icon"></span>
-            <span>Title</span>
+            <span>프로젝트</span>
           </p>
           <ul className="detail__lists">
             <li className="detail__lists-item"> {/* 주최 회사 */}
-              <p className="tit-s">Tit</p>
-              <p className="txt">Txt</p>
+              <p className="tit-s">진행 회사</p>
+              <p className="txt">{data.company}</p>
             </li>
             <li className="detail__lists-item"> {/* 투입 기간 */}
-              <p className="tit-s">Tit</p>
-              <p className="txt">Txt</p>
+              <p className="tit-s">투입 인원</p>
+              <p className="txt">{data.people}</p>
             </li>
             <li className="detail__lists-item"> {/* 투입 인원 */}
-            <p className="tit-s">Tit</p>
-              <p className="txt">Txt</p>
+            <p className="tit-s">기간</p>
+              <p className="txt">{data.date}</p>
             </li>
           </ul>
         </div>
         <div className="popup__cont-item skills">
           <p className="tit"><span>Skills</span></p>
           <ul className="skills__lists">
-            <li className="skills__lists-item"><span>TEXT</span></li>
-            <li className="skills__lists-item"><span>TEXT</span></li>
-            <li className="skills__lists-item"><span>TEXT</span></li>
-            <li className="skills__lists-item"><span>TEXT</span></li>
+            {
+              data.skills.map((item, idx)=>(
+                <li className="skills__lists-item" key={idx}>
+                  <span>{item}</span>
+                </li>
+              ))
+            }
           </ul>
         </div>
         <div className="popup__cont-item review">
           <div className="review-box">
             <p className="tit"><span>Tit</span></p>
             {/* 배열 */}
-            <p className="txt">sdfsdfsdfsdfsdf</p>
+            {
+              data.contents.map((item,idx)=>(
+                <p className="txt" key={idx}>{item}</p>
+              ))
+            }
           </div>
           <div className="review-box">
             <p className="tit"><span>Tit</span></p>
@@ -72,7 +78,6 @@ const PopupWrap = styled.div`
   position:relative;
   height:100%;
 `;
-// 부모 기준 임시 scss로 선 진행
 const PopupHead = styled.div`
   padding:0 30px;
   text-align:center;
@@ -100,7 +105,6 @@ const PopupCont = styled.div`
   flex-grow:1;
   display:flex;
   flex-wrap:wrap;
-  
   gap:20px;
   position:relative;
   margin-top:30px;
@@ -148,6 +152,12 @@ const PopupCont = styled.div`
     }
     .detail {
       &__lists{
+        &-item{
+          margin-top:8px;
+          &:first-child {
+            margin-top:0px;
+          }
+        }
         .tit-s {
           &::before {
             position:absolute;
@@ -159,6 +169,9 @@ const PopupCont = styled.div`
             background:${colors.blue};
             content:'';
           }
+        }
+        .txt{
+          margin-top:5px;
         }
       }
     }

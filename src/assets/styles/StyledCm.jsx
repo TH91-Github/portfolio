@@ -53,7 +53,7 @@ export const Button = styled.button.attrs({
 export const BtnArticle = styled.div`
   display:flex;
   justify-content : ${props => props.$justifyConent || 'flex-start'};
-  ${props => props.gap && `gap: ${props.$gap}`};
+  ${props => props.$gap && `gap: ${props.$gap}`};
   margin-top:${props => props.$marginTop || 30 }px;
   ${media.mo}{
     margin-top:${props => props.$marginTop || 20 }px;

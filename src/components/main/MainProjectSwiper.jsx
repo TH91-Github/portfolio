@@ -8,7 +8,7 @@ import { Pagination, A11y } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-function MainProjectSwiper ({swiperData, swiperClick}){
+function MainProjectSwiper ({swiperData, swiperClick, swiperStart}){
   const [isFocus, setIsFocus] = useState('');
   const SwiperWrap = useRef(null);
   useEffect(()=>{
@@ -35,11 +35,12 @@ function MainProjectSwiper ({swiperData, swiperClick}){
           clickable: true,
         }}
         modules={[Pagination, A11y]}
+        className={swiperStart?'view':''}
       >
       {
         swiperData 
           ? swiperData.map((item, idx)=>(
-            <SlideItem key={idx} className="item">
+            <SlideItem $delay={idx*0.2} key={idx} className="item">
               <Number className="number">
                 <AniNum 
                   className={`${isFocus === idx ?'isFocus':''}`} 
@@ -107,6 +108,11 @@ const ProjectSwiper = styled(Swiper)`
       }
     }
   }
+  &.view{
+    .item {
+      animation-play-state: running;
+    }
+  }
   ${media.mo}{
     .tit{
       margin-top:20px;
@@ -120,6 +126,10 @@ const SlideItem = styled(SwiperSlide)`
   padding: 20px;
   border-radius:20px;
   box-shadow:0px 5px 10px rgba(0, 0, 0, 0.3);
+  opacity:0;
+  ${SC.animation(SC.fadeIn, 1, 'ease')}
+  ${props => props.$delay && `animation-delay:${props.$delay}s;`}
+  animation-play-state: paused;
   &:hover {
     .number > span {
       &::before, &::after{

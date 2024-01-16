@@ -8,6 +8,7 @@ import { colors, media } from "assets/styles/Variable";
 
 import sample from 'assets/images/sample.png'
 
+// Data 정보 통합 예정
 const aboutTit = ["ABOUT"];
 const profileJob = ["퍼블리셔", "프론트엔드","Publisher","Front-End"];
 const profileText = ["안녕하세요. 저는","김태훈입니다.", "과거엔 퍼블리셔, 현재와 미래에는 프론트엔드로 진행중이며","수동적인 개발자가 아닌 주도적으로", "문제해결을 하고 최고의 결과물을 위해 끊임없이","고민하는 개발자가 되려고 합니다.","😁"];

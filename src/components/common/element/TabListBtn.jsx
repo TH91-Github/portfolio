@@ -1,9 +1,12 @@
 import * as SC from "assets/styles/StyledCm";
 import { colors, media, transitions } from "assets/styles/Variable";
+import { useState } from "react";
 import styled from "styled-components";
 
-function TabListBtn ({tabData, clickEvent, animation, delay}) { // animation, delay: 
+function TabListBtn ({tabData, clickEvent, animation, delay}) { // animation, delay
+  const [activeIdx, setActiveIdx] = useState(0);
   const tabClick = (e,i) => {
+    setActiveIdx(i);
     clickEvent(e,i);
   }
   // animation 값 있을 때만 animation option
@@ -20,7 +23,7 @@ function TabListBtn ({tabData, clickEvent, animation, delay}) { // animation, de
         {
           tabData?.map((item,idx) => (
             <li key={idx}>
-              <TabBtn onClick={()=>tabClick(item,idx)}>
+              <TabBtn className={activeIdx ===idx ?'active':''}onClick={()=>tabClick(item,idx)}>
                 <span>
                   {item.title}
                 </span>
@@ -35,17 +38,37 @@ function TabListBtn ({tabData, clickEvent, animation, delay}) { // animation, de
 export default TabListBtn;
 
 const TabBtnList = styled.div`
+  overflow-x:auto;
+  padding:10px 0;
   &.fadeIn {
     opacity:0;
     animation: ${SC.fadeIn} 1s ${props => props.$delay}s both;
   }
-  ${media.mo}{
-    overflow-x:auto;
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${colors.yellow};
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: ${colors.bgWhite};
   }
 `;
 const TabUl = styled.ul`
   display:flex;
-  gap: ${props => props.$gap || '10px'};
+  &>li{
+    padding:0 5px;
+    &:first-child{
+      padding-left:0;
+    }
+    &:last-child{
+      padding-right:0;
+    }
+  }
   ${media.pc}{
     justify-content:center;
   }
@@ -53,16 +76,16 @@ const TabUl = styled.ul`
 
 const TabBtn = styled(SC.Button)`
   position:relative;
-  padding:10px 15px;
+  height:40px;
+  padding:1px 15px;
   border-radius:5px;
   border:1px solid ${colors.bgWhite};
+  line-height:38px;
   transition: ${transitions.base};
+  white-space: nowrap;
   &:hover, &:focus {
     border-color:${colors.blue};
     background:${colors.bgWhite};
     color:${colors.blue};
-  }
-  ${media.mo}{
-    white-space: nowrap;
   }
 `;

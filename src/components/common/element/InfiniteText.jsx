@@ -69,11 +69,11 @@ const TextBox = styled.div`
     font-size:80px;
   }
   &.original {
-    animation: textAni-1 15s linear infinite;
+    animation: textAni-1 20s linear infinite;
   }
   &.clone {
     transform: translateX(100%);
-    animation: textAni-2 15s linear infinite;
+    animation: textAni-2 20s linear infinite;
   }
   @keyframes textAni-1 {
     0% {

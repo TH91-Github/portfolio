@@ -89,7 +89,7 @@ const ItemInfo = styled.div`
     overflow:hidden;
     font-size:16px;
     font-weight:400;
-    line-height:21px;
+    line-height:24px;
     &>span{
       display:inline-block;
       animation: ${SC.fadeIn} 1s both;
