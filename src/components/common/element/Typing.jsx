@@ -33,7 +33,7 @@ function Typing({typingData, delay, inputS, removeS, pauseTime, infinite, comple
     }
   } 
   const textRemove = () => { // 글자 하나씩 삭제
-    const removeTxt = textData[arrLength].slice(arrLength,tNum);
+    const removeTxt = textData[arrLength].slice(0,tNum);
     if(tNum >= 0) {
       setText(removeTxt)
       tNum--;
