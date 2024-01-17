@@ -20,7 +20,7 @@ function MainVisual({view}){
     setNextStage(true);
   }
   return (
-    <VisualWrap>
+    <VisualWrap id="Visual">
       <VisualTextBox> 
         <TypingTag 
           titData={VisualText}

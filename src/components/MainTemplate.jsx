@@ -14,7 +14,7 @@ function MainTemplate() {
   return (
     <MainWrap className="main">
       <Observer percentage={0.25}>
-        <MainVisual />
+        <MainVisual/>
         <MainAbout sectionTitle={MainList[1]} />
         <MainSkills sectionTitle={MainList[2]} />
         <MainProject sectionTitle={MainList[3]} />

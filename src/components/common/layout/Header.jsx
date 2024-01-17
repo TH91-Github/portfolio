@@ -20,14 +20,26 @@ function Header ({headeList}) {
       window.removeEventListener("scroll", eventScroll);
     };
   },[eventScroll])
+  const logoClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' }); 
+    // navigate("/");
+  }
+  const navClick = (selectName) =>{
+    const selectBox = document.getElementById(selectName);
+    let selectTop = window.pageYOffset + selectBox.getBoundingClientRect().top;
 
-  const NavClick = () =>{
-    console.log("Click");
+    if(headeList[1].title === selectName){ // About - sticky 
+      const VisualBox = document.getElementById(headeList[0].title);
+      const VisualTop = window.pageYOffset + VisualBox.getBoundingClientRect().top;
+      const VisualH = VisualBox.offsetHeight;
+      selectTop = VisualTop + VisualH;
+    }
+    window.scrollTo({ top: selectTop, behavior: 'smooth' }); 
   }
   return (
     <HeaderWrap className={`header ${scrollZero ? 'header-fixed' : ''}`}>
       <HeaderInner className="header__inner">
-        <MainBtn onClick={()=> navigate("/")}>
+        <MainBtn onClick={()=> logoClick()}>
           <TitIcon><SvgCode $fillColor={scrollZero ? colors.bgBlack : "#fff"}/></TitIcon>
           <Tit>TEST</Tit>
         </MainBtn>
@@ -36,7 +48,7 @@ function Header ({headeList}) {
             headeList.map((item,idx) => 
               idx > 0 && <NavBtn
                 $scrollZero={scrollZero}
-                onClick={() => NavClick()}
+                onClick={() => navClick(item.title)}
                 key={idx}>
                 {item.title}
               </NavBtn>
