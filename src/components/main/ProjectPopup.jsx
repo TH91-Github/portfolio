@@ -7,7 +7,6 @@ import styled from "styled-components";
 const projectDefalut = {title:"Title", desc:"TEST TEST", img:"없음",company:"회사 입력", link:"URL", people:"투입 인원", participation:"참여도",  date:"기간", skills:["TEST","기술"], contents:["작업내용"], review:["TEST"],};
 function ProjectPopup ({popupData}){
   const data = popupData ?? projectDefalut
-  console.log(popupData)
   return(
     <PopupWrap>
       <PopupHead className="popup__head">

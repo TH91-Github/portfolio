@@ -1,10 +1,12 @@
-import { Children, cloneElement, isValidElement } from "react";
+import { Children, cloneElement, isValidElement, useEffect, useState } from "react";
 import styled from "styled-components";
 import { Button } from "assets/styles/StyledCm";
 import { colors, media, transitions } from "assets/styles/Variable";
 
 function Popup ({ children, popupOn, ...props }){
+  const [beforeY, setBeforeY] = useState(0);
   const popupClosed = () => { // 닫기
+    mobileScrollOff(false);
     popupOn(false)
   }
   const childrenProps = Children.map(children, (child) => {
@@ -13,6 +15,34 @@ function Popup ({ children, popupOn, ...props }){
     }
     return child
   })
+
+  const mobileScrollOff = (chkOnOff) => { // mo 스크롤 막기
+    const body = document.body;
+    if(chkOnOff){
+      setBeforeY(window.pageYOffset);
+      body.style.overflow = 'hidden';
+      body.style.height = '100%';
+    }else{
+      body.removeAttribute('style');
+      window.scrollTo({top:beforeY, behavior: 'instant'});
+      setTimeout(() => { // 팝업 닫은 후 이동이 안되었을 경우
+        if(window.pageYOffset < 10){
+          window.scrollTo({top:beforeY, behavior: 'instant'});
+        }
+      },50)
+    }
+  };
+  // const menuMoClick = () => {
+  //   mobileScrollOff(!menuState);
+  //   setMenuState(!menuState);
+  // }
+
+  useEffect(()=>{
+    mobileScrollOff(true);
+  },[])
+
+  
+  
   return (
     <PopupLayer>
       <PopupInner className="popup__inner">
