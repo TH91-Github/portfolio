@@ -15,8 +15,11 @@ function ProjectPopup ({popupData}){
           {data.desc}
         </div>
         <div className="project-status">
-          <span className="icon"></span>
-          <p>🔗: {data.link}</p> 
+          <p classname="link">
+            {
+              data.link.length > 1 && <a href={data.link}>{data.link}</a>
+            }
+          </p> 
         </div>
       </PopupHead>
       <PopupCont className="popup__cont">
@@ -53,7 +56,7 @@ function ProjectPopup ({popupData}){
         </div>
         <div className="popup__cont-item review">
           <div className="review-box">
-            <p className="tit"><span>Tit</span></p>
+            <p className="tit"><span>프로젝트 업무</span></p>
             {/* 배열 */}
             {
               data.contents.map((item,idx)=>(
@@ -62,8 +65,12 @@ function ProjectPopup ({popupData}){
             }
           </div>
           <div className="review-box">
-            <p className="tit"><span>Tit</span></p>
-            <p className="txt">sdfsdfsdfsdfsdf</p>
+            <p className="tit"><span>프로젝트 소감</span></p>
+            {
+              data.review.map((item,idx)=>(
+                <p className="txt" key={idx}>{item}</p>
+              ))
+            }
           </div>
         </div>
       </PopupCont>
@@ -91,11 +98,21 @@ const PopupHead = styled.div`
   }
   .project-status{
     margin-top:10px;
+    a {
+      display:block;
+      white-space: nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      &::before{
+        display:block;
+        content:'🔗';
+      }
+    }
   }
   ${media.mo}{
     max-height:100px;
     .tit {
-      font-size:28px;
+      font-size:18px;
     }
   }
 `;
@@ -141,11 +158,10 @@ const PopupCont = styled.div`
     }
     .tit{ 
       margin-bottom:10px;
-      font-size:21px;
+      font-size:18px;
       font-weight:800;
       line-height:35px;
       &-s {
-        font-size:18px;
         font-weight:800;
       }
     }
@@ -170,7 +186,7 @@ const PopupCont = styled.div`
           }
         }
         .txt{
-          margin-top:5px;
+          margin-top:8px;
         }
       }
     }
@@ -180,8 +196,8 @@ const PopupCont = styled.div`
         flex-wrap:wrap;
         gap:20px;
         &-item{
-          padding:12px 30px;
-          border-radius:30px;
+          padding:12px 25px;
+          border-radius:25px;
           text-align:center;
           ${SC.insetShadow};
           & > span { 
@@ -198,6 +214,12 @@ const PopupCont = styled.div`
         margin-top:10px;
         &:first-child {
           margin-top:0;
+        }
+        .txt {
+          margin-top:8px;
+          &:first-child{
+            margin-top:0px;
+          }
         }
       }
     }
@@ -219,7 +241,7 @@ const PopupCont = styled.div`
       .tit{
         margin-bottom:8px;
         font-size:18px;
-        line-height:30px;
+        line-height:24px;
       }
       .detail {
         &__lists{
@@ -235,6 +257,25 @@ const PopupCont = styled.div`
               width:6px;
               height:9px;
             }
+          }
+        }
+      }
+      .skills{
+        &__lists {
+          gap:15px;
+          &-item{
+            padding:10px 20px;
+            border-radius:20px;
+            &>span{
+              font-size:14px;
+            }
+          }
+        }
+      }
+      .review {
+        &-box {
+          .txt{
+            font-size:14px;
           }
         }
       }

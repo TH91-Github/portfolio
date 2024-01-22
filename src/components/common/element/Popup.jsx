@@ -32,17 +32,11 @@ function Popup ({ children, popupOn, ...props }){
       },50)
     }
   };
-  // const menuMoClick = () => {
-  //   mobileScrollOff(!menuState);
-  //   setMenuState(!menuState);
-  // }
 
   useEffect(()=>{
     mobileScrollOff(true);
   },[])
 
-  
-  
   return (
     <PopupLayer>
       <PopupInner className="popup__inner">
@@ -136,6 +130,8 @@ const CloseBtn = styled(Button)`
   ${media.mo}{
     top:15px;
     right:15px;
+    width:15px;
+    height:15px;
   }
 `;
 
