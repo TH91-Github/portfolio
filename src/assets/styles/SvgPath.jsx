@@ -128,6 +128,12 @@ export const Svglink = ({...props}) => {
   </Svg>
 }
 
+export const SvgTalk = ({...props}) => {
+  return <Svg {...props} viewBox="0 0 20 20" >
+    <path fill-rule="evenodd" d="M13 10a1 1 0 102 0 1 1 0 00-2 0zm-4 0a1 1 0 102 0 1 1 0 00-2 0zm-4 0a1 1 0 102 0 1 1 0 00-2 0zm5-8c-4.411 0-8 3.589-8 8 0 1.504.425 2.908 1.15 4.111l-1.069 2.495a1 1 0 001.314 1.313l2.494-1.069A7.939 7.939 0 0010 18c4.411 0 8-3.589 8-8s-3.589-8-8-8z"/>
+ </Svg>
+}
+
 // skills, merge
 export const SvgSkills = ({...props}) => {
   const color = props.$strokeColor ?? "#000";
@@ -222,3 +228,4 @@ export const SvgNaver = ({...props}) => {
    <path d="M16.273 12.845 7.376 0H0v24h7.726V11.156L16.624 24H24V0h-7.727v12.845Z"/>
   </Svg>
 }
+

@@ -1,5 +1,6 @@
 
 import * as SC from "assets/styles/StyledCm";
+import { SvgRecord, SvgSkills, SvgTalk } from "assets/styles/SvgPath";
 import { colors, media } from "assets/styles/Variable";
 import styled from "styled-components";
 
@@ -15,16 +16,15 @@ function ProjectPopup ({popupData}){
           {data.desc}
         </div>
         <div className="project-status">
-          <p classname="link">
-            {
-              data.link.length > 1 && <a href={data.link}>{data.link}</a>
-            }
-          </p> 
+          {
+            data.link.length > 1 && <a href={data.link} target="_balnk" title="새 창 열기" className="link"></a>
+          }
         </div>
       </PopupHead>
       <PopupCont className="popup__cont">
         <div className="popup__cont-item detail">
           <p className="tit">
+            <span className="icon"><SvgRecord /></span>
             <span>프로젝트</span>
           </p>
           <ul className="detail__lists">
@@ -34,7 +34,7 @@ function ProjectPopup ({popupData}){
             </li>
             <li className="detail__lists-item"> {/* 투입 기간 */}
               <p className="tit-s">투입 인원</p>
-              <p className="txt">{data.people}</p>
+              <p className="txt">{data.people} 명</p>
             </li>
             <li className="detail__lists-item"> {/* 투입 인원 */}
             <p className="tit-s">기간</p>
@@ -43,7 +43,10 @@ function ProjectPopup ({popupData}){
           </ul>
         </div>
         <div className="popup__cont-item skills">
-          <p className="tit"><span>Skills</span></p>
+          <p className="tit">
+            <span className="icon"><SvgSkills /></span>
+            <span>Skills</span>
+          </p>
           <ul className="skills__lists">
             {
               data.skills.map((item, idx)=>(
@@ -56,21 +59,28 @@ function ProjectPopup ({popupData}){
         </div>
         <div className="popup__cont-item review">
           <div className="review-box">
-            <p className="tit"><span>프로젝트 업무</span></p>
-            {/* 배열 */}
-            {
-              data.contents.map((item,idx)=>(
-                <p className="txt" key={idx}>{item}</p>
-              ))
-            }
-          </div>
-          <div className="review-box">
-            <p className="tit"><span>프로젝트 소감</span></p>
-            {
-              data.review.map((item,idx)=>(
-                <p className="txt" key={idx}>{item}</p>
-              ))
-            }
+            <p className="tit">
+              <span className="icon"><SvgTalk /></span>
+              <span>프로젝트 업무</span>
+            </p>
+            <ul className="detail__lists">
+              <li className="detail__lists-item">
+                <p className="tit-s">프로젝트 업무</p>
+                {
+                  data.contents.map((item,idx)=>(
+                    <p className="txt" key={idx}>{item}</p>
+                  ))
+                }
+              </li>
+              <li className="detail__lists-item">
+                <p className="tit-s">프로젝트 소감</p>
+                {
+                  data.review.map((item,idx)=>(
+                    <p className="txt" key={idx}>{item}</p>
+                  ))
+                }
+              </li>
+            </ul>
           </div>
         </div>
       </PopupCont>
@@ -81,6 +91,7 @@ export default ProjectPopup;
 const PopupWrap = styled.div`
   display:flex;
   flex-direction:column;
+  gap:10px;
   position:relative;
   height:100%;
 `;
@@ -88,7 +99,7 @@ const PopupHead = styled.div`
   padding:0 30px;
   text-align:center;
   .tit {
-    font-size:36px;
+    font-size:28px;
     font-weight:800;
   }
   .desc{
@@ -98,19 +109,20 @@ const PopupHead = styled.div`
   }
   .project-status{
     margin-top:10px;
-    a {
+    .link {
       display:block;
       white-space: nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
+      font-size:14px;
+      color:${colors.subTextColor};
       &::before{
-        display:block;
         content:'🔗';
       }
     }
   }
   ${media.mo}{
-    max-height:100px;
+    // max-height:120px;
     .tit {
       font-size:18px;
     }
@@ -123,7 +135,6 @@ const PopupCont = styled.div`
   flex-wrap:wrap;
   gap:20px;
   position:relative;
-  margin-top:30px;
   padding:30px 20px;
   border-radius:10px;
   background:${colors.bgWhite};
@@ -161,9 +172,35 @@ const PopupCont = styled.div`
       font-size:18px;
       font-weight:800;
       line-height:35px;
-      &-s {
-        font-weight:800;
+      .icon {
+        display:block;
+        position:absolute;
+        z-index:6;
+        top:17px;
+        left:17px;
+        width:20px;
+        height:20px;
+        transform:translate(-50%, -50%);
+        svg{
+          position:absolute;
+        }
       }
+    }
+    .tit-s {
+      font-weight:800;
+      &::before {
+        position:absolute;
+        left:16px;
+        width:8px;
+        height:12px;
+        border-radius:5px 5px;
+        transform:translateY(5px);
+        background:${colors.bgBlack};
+        content:'';
+      }
+    }
+    .txt{
+      margin-top:8px;
     }
     .detail {
       &__lists{
@@ -172,21 +209,6 @@ const PopupCont = styled.div`
           &:first-child {
             margin-top:0px;
           }
-        }
-        .tit-s {
-          &::before {
-            position:absolute;
-            left:16px;
-            width:8px;
-            height:12px;
-            border-radius:5px 5px;
-            transform:translateY(5px);
-            background:${colors.blue};
-            content:'';
-          }
-        }
-        .txt{
-          margin-top:8px;
         }
       }
     }
@@ -211,10 +233,6 @@ const PopupCont = styled.div`
     }
     .review {
       &-box {
-        margin-top:10px;
-        &:first-child {
-          margin-top:0;
-        }
         .txt {
           margin-top:8px;
           &:first-child{
@@ -225,7 +243,6 @@ const PopupCont = styled.div`
     }
   }
   ${media.mo}{
-    margin-top:20px;
     .popup__cont-item {
       width:100%;
       height:auto;
@@ -242,6 +259,12 @@ const PopupCont = styled.div`
         margin-bottom:8px;
         font-size:18px;
         line-height:24px;
+        .icon {
+          top:15px;
+          left:15px;
+          width:17px;
+          height:17px;
+        }
       }
       .detail {
         &__lists{
