@@ -7,11 +7,12 @@ import * as SC from "assets/styles/StyledCm";
 import { colors, media } from "assets/styles/Variable";
 
 import sample from 'assets/images/sample.png'
+import { TextBr } from "utils/textChk";
 
 // Data 정보 통합 예정
 const aboutTit = ["ABOUT"];
 const profileJob = ["퍼블리셔", "프론트엔드","Publisher","Front-End"];
-const profileText = ["안녕하세요. 저는","김태훈입니다.", "과거엔 퍼블리셔, 현재와 미래에는 프론트엔드로 진행중이며","수동적인 개발자가 아닌 주도적으로", "문제해결을 하고 최고의 결과물을 위해 끊임없이","고민하는 개발자가 되려고 합니다.","😁"];
+const profileText = ["안녕하세요. 저는","김태훈입니다.", "과거엔 퍼블리셔, 현재와 미래에는<br /> 프론트엔드로 진행중이며","수동적인 개발자가 아닌 주도적으로", "문제해결을 하고 최고의 결과물을 위해 끊임없이","고민하는 개발자가 되려고 합니다.","😁"];
 
 function MainAbout({ sectionTitle, view }) {
   const isMobile = useSelector((state) => state.mobileChk);
@@ -35,11 +36,13 @@ function MainAbout({ sectionTitle, view }) {
             <AboutProfileImg className="about__profile-img">
               <AboutImgBox className="img">
                 <img src={sample} alt="" />
+                <span className="subImg"> </span>
+                {/* <img src={} alt="" /> */}
               </AboutImgBox>
             </AboutProfileImg>
           </AboutProfile>
           <AboutInfo className="about__info">
-            <AboutTextUp className="text"><span>{profileText[0]}</span></AboutTextUp>
+            <AboutTextUp className="text"><span>{TextBr(profileText[0])}</span></AboutTextUp>
             <AboutTextJob className="text-job">
               { 
                 view &&
@@ -55,7 +58,7 @@ function MainAbout({ sectionTitle, view }) {
                   className="text"
                   $delay={((idx+1)*0.2)+1}
                   key={idx}>
-                  <span>{item}</span>
+                  <span>{TextBr(item)}</span>
                 </AboutTextUp>
               ))
             }
@@ -191,6 +194,24 @@ const AboutImgBox = styled.span`
     animation: imgAni 1s 1s both;
     animation-play-state: paused;
   }
+  .subImg {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#000;
+    opacity:0;
+    animation: fadeImg 8s 3s infinite both;
+    @keyframes fadeImg{
+      0%, 37.5%, 100%{
+        opacity:0;
+      }
+      50%, 87.5%{
+        opacity:1;
+      }
+    }
+  }
   @keyframes imgAni {
     0%{
       opacity:0;
@@ -252,7 +273,6 @@ const AboutTextJob = styled.div`
 `;
 const AboutTextUp = styled.p`
   overflow:hidden;
-  font-size:18px;
   line-height:24px;
   span {
     display:inline-block;

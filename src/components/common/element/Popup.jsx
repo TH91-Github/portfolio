@@ -1,4 +1,4 @@
-import { Children, cloneElement, isValidElement, useEffect, useState } from "react";
+import { Children, cloneElement, isValidElement, useCallback, useEffect, useState } from "react";
 import styled from "styled-components";
 import { Button } from "assets/styles/StyledCm";
 import { colors, media, transitions } from "assets/styles/Variable";
@@ -16,7 +16,7 @@ function Popup ({ children, popupOn, ...props }){
     return child
   })
 
-  const mobileScrollOff = (chkOnOff) => { // mo 스크롤 막기
+  const mobileScrollOff = useCallback((chkOnOff)=>{
     const body = document.body;
     if(chkOnOff){
       setBeforeY(window.pageYOffset);
@@ -25,18 +25,18 @@ function Popup ({ children, popupOn, ...props }){
     }else{
       body.removeAttribute('style');
       window.scrollTo({top:beforeY, behavior: 'instant'});
-      setTimeout(() => { // 팝업 닫은 후 이동이 안되었을 경우
-        if(window.pageYOffset < 10){
-          window.scrollTo({top:beforeY, behavior: 'instant'});
-        }
-      },50)
+      // setTimeout(() => { // 팝업 닫은 후 이동이 안되었을 경우
+      //   if(window.pageYOffset < 10){
+      //     window.scrollTo({top:beforeY, behavior: 'instant'});
+      //   }
+      // },100)
     }
-  };
-
+  },[beforeY])
   useEffect(()=>{
     mobileScrollOff(true);
-  },[])
+  },[mobileScrollOff])
 
+  
   return (
     <PopupLayer>
       <PopupInner className="popup__inner">
@@ -85,7 +85,8 @@ const PopupInner = styled.div`
   ${media.mo}{
     width:calc(100% - 30px);
     min-width:auto;
-    height:calc(100% - 30px);
+    height:calc(80% - 30px);
+    min-height:450px;
     padding:15px;
   }
 `;

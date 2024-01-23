@@ -6,10 +6,10 @@ $weight:550;
 
 // 새로운
 $fontFamily: ('SUITE-Light','SUITE-Regular','SUITE-Medium','SUITE-SemiBold','SUITE-Bold','SUITE-ExtraBold','SUITE-Heavy');
-@each $name in $NfontFamily{
-  $i: index($NfontFamily, $name);
-  @include NfontFace($name, $i+2);
-}
+// @each $name in $NfontFamily{
+//   $i: index($NfontFamily, $name);
+//   @include NfontFace($name, $i+2);
+// }
 
 // Break Point (Desktop First 기준 내림차순 설정)
 $onlyPc: 1920px;

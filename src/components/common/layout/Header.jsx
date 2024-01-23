@@ -2,11 +2,9 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { colors, media, transitions } from "assets/styles/Variable";
 import * as SC from "assets/styles/StyledCm";
-import { useNavigate } from "react-router-dom";
 import { SvgCode } from "assets/styles/SvgPath";
 
 function Header ({headeList}) {
-  const navigate = useNavigate();
   const [scrollZero, setScrollZero] = useState(false);
   let scrollY = useRef(0);
   // scroll
@@ -22,7 +20,6 @@ function Header ({headeList}) {
   },[eventScroll])
   const logoClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' }); 
-    // navigate("/");
   }
   const navClick = (selectName) =>{
     const selectBox = document.getElementById(selectName);
@@ -110,6 +107,9 @@ const NavWrap = styled.div`
   display:flex;
   align-items:center;
   gap:10px;
+  ${media.onlyMo}{
+    gap:0;
+  }
 `;
 const NavBtn = styled(SC.Button)`
   padding:5px 10px;
@@ -121,6 +121,6 @@ const NavBtn = styled(SC.Button)`
     color:${props => props.$scrollZero ? '#fff' : colors.bgBlack};
   }
   ${media.mo}{
-    font-size: 16px;
+    font-size: 14px;
   }
 `;

@@ -128,7 +128,9 @@ const SlideItem = styled(SwiperSlide)`
   box-shadow:0px 5px 10px rgba(0, 0, 0, 0.3);
   opacity:0;
   ${SC.animation(SC.fadeIn, 1, 'ease')}
-  ${props => props.$delay && `animation-delay:${props.$delay}s;`}
+  ${props => props.$delay > 0 && 
+    `animation-delay:${props.$delay}s;`
+  }
   animation-play-state: paused;
   &:hover {
     .number > span {
