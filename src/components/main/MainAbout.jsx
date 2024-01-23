@@ -273,6 +273,7 @@ const AboutTextJob = styled.div`
 `;
 const AboutTextUp = styled.p`
   overflow:hidden;
+  font-family: 'Jeju Myeongjo', serif;
   line-height:24px;
   span {
     display:inline-block;

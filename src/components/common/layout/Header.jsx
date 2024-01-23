@@ -38,7 +38,7 @@ function Header ({headeList}) {
       <HeaderInner className="header__inner">
         <MainBtn onClick={()=> logoClick()}>
           <TitIcon><SvgCode $fillColor={scrollZero ? colors.bgBlack : "#fff"}/></TitIcon>
-          <Tit>TEST</Tit>
+          <Tit>KTH</Tit>
         </MainBtn>
         <NavWrap>
           {

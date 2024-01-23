@@ -5,7 +5,7 @@ import TypingTag from "components/common/element/TypingTag";
 import { colors } from "assets/styles/Variable";
 
 // Data 정보 통합 예정
-const VisualText = ["TAG를 입력중","TEXT","Portfolio"];
+const VisualText = ["Portfolio","시작할게요","Hello"];
 
 function MainVisual({view}){
   const [nextStage, setNextStage] = useState(false);
