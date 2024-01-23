@@ -25,17 +25,17 @@ export const TextUpLow = (text, type) => {
   }
   return text
 }
-export function TextBr (text) {  // br 태그 삽입
+export function TextBr (text, classN) {  // br 태그 삽입
   if(!text) return;
   const brTag ="<br />";
   // 변경 값을 \n 으로 하고 css : white-spase: pre-wrap; 사용 가능
   const brChange = text.replaceAll(/(<br>|<br\/>|<br \/>|<\/br>|\r|\n)/gi, brTag).split(brTag);
   const newBr = brChange.filter(item => item.length > 0); // 공백 배열 요소 제거
+  
   return newBr.reduce((prevText, currentText) => {
-    return <>{prevText} <br />{currentText.trim()}</>
+    return <>{prevText} <br className={classN && classN}/>{currentText.trim()}</>
   })
 }
-
 // etc 
 export const TextChange = (text) => {
   if(!text) return;
