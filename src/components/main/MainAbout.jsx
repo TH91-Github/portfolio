@@ -58,7 +58,7 @@ function MainAbout({ sectionTitle, view }) {
                   className="text"
                   $delay={((idx+1)*0.2)+1}
                   key={idx}>
-                  <span>{TextBr(item)}</span>
+                  <span>{TextBr(item, 'm-br')}</span>
                 </AboutTextUp>
               ))
             }
@@ -273,8 +273,8 @@ const AboutTextJob = styled.div`
 `;
 const AboutTextUp = styled.p`
   overflow:hidden;
-  font-family: 'Jeju Myeongjo', serif;
-  line-height:24px;
+  font-family:'Chosunilbo_myungjo';
+  line-height:26px;
   span {
     display:inline-block;
     opacity:0;

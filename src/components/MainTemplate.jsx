@@ -9,15 +9,24 @@ import { breakPoints } from "assets/styles/Variable";
 import { useOutletContext } from "react-router-dom";
 
 
+const percentage = 0.25;
 function MainTemplate() {
   const {MainList} = useOutletContext();
   return (
     <MainWrap className="main">
-      <Observer percentage={0.25}>
+      <Observer percentage={percentage}>
         <MainVisual/>
+      </Observer>
+      <Observer percentage={percentage}>
         <MainAbout sectionTitle={MainList[1]} />
+      </Observer>
+      <Observer percentage={percentage}>
         <MainSkills sectionTitle={MainList[2]} />
+      </Observer>
+      <Observer percentage={percentage}>
         <MainProject sectionTitle={MainList[3]} />
+      </Observer>
+      <Observer percentage={percentage}>
         <MainEnd />
       </Observer>
     </MainWrap>
