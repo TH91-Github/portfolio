@@ -3,7 +3,8 @@ import { colors, media } from './Variable';
 
 export const GlobalStyles = createGlobalStyle`
   body {
-    font-family: 'SUIT',sans-serif; font-weight:500;
+    font-family: 'SUIT',sans-serif;
+    font-weight:500;
   }
   img {
     vertical-align: top;

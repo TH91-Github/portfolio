@@ -4,20 +4,6 @@
 $size: 16px;
 $weight:550;
 
-// 새로운
-$fontFamily: ('SUITE-Light','SUITE-Regular','SUITE-Medium','SUITE-SemiBold','SUITE-Bold','SUITE-ExtraBold','SUITE-Heavy');
-// @each $name in $NfontFamily{
-//   $i: index($NfontFamily, $name);
-//   @include NfontFace($name, $i+2);
-// }
-
-@font-face {
-  font-family: 'Jeju Myeongjo', serif;
-  font-weight: normal;
-  src: url("./fonts/JejuMyeongjo.ttf") format("truetype");
-}
-
-
 // Break Point (Desktop First 기준 내림차순 설정)
 $onlyPc: 1920px;
 $pc: 1440px;

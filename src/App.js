@@ -5,6 +5,7 @@ import { sSetMobileChk } from "store/store";
 import { isMobileChk } from "utils/common";
 import { GlobalStyles } from 'assets/styles/GlobalStyles';
 import Header from 'components/common/layout/Header';
+import 'assets/scss/common.scss';
 
 const MainList = [
   {

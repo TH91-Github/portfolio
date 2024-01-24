@@ -9,3 +9,10 @@
 //     url($path+'.ttf') format('truetype');
 //   }
 // }
+
+@font-face {
+  font-family: 'Chosunilbo_myungjo';
+  src: 
+    url("../fonts/ChosunSm.woff2") format('woff2'),
+    url("../fonts/ChosunSm.TTF") format("truetype");
+}
