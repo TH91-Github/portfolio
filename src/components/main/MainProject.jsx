@@ -70,8 +70,8 @@ const projectListData = [
     participation:"60%",
     date:"2018.03 ~ 2021.05",
     skills:["HTML","CSS","Jquery","JavaScript","SVN","Canvas"],
-    contents:["사이트 운영 및 부분 리뉴얼, 매달 프로모션 이벤트 진행","Canvas, animation, transition, transform 효과"],
-    review:[],
+    contents:["SK브로드밴드, B 다이렉트 샵 사이트 운영 업무 진행","가입 상품 관련 안내 업데이트를 진행하고 SVN을 사용하여 형상관리","매월 정기 프로모션 이벤트 페이지 제작 시 이벤트 페이지 코딩 및 브로드밴드 메인 Visual 영역을 시선을 끌기 위해 Canvas, animation, transform 활용하여 동적으로 표현하는 작업 진행"],
+    review:["인터넷, 티비 관련 많은 정보와 분기에 따른 정보가 달랐기에 분기처리 및 방대한 양의 데이터를 엑셀로 관리 json 파일 변환하여 사용하는 작업을 배우게 되었습니다.","프로모션 페이지의 중요도 보다 Main Visual 애니메이션에 오랜 시간과 반복 수정이 이루어졌고 애니메이션 효과중 호환되지 않은 브라우저에서 깨져보이는 현상 오류 발생하였고, 오류 해결을 위해 기존 모션 제거 후 호환 가능한 기능으로 수정 또는 변경하면서 animation 관련 가장 많이 스킬향상이 된 프로젝트였습니다."],
   },
   {
     title:"현대자동차 그룹 (운영)",

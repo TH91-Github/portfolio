@@ -25,16 +25,14 @@ vercel를 통해 배포하였습니다.
 <hr />
 <br>
 
-```shell
-git clone https://github.com/TH91-Github/RIOT-LOL
-```
+
 
 ```shell
-npm install
+npm start
 ```
+<br />
 
 ``` shell
-- install
 - node-sass
 - react-router-dom@6
 - @reduxjs/toolkit react-redux

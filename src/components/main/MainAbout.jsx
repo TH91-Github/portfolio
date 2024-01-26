@@ -1,13 +1,14 @@
 import { useSelector } from "react-redux";
 import Typing from "components/common/element/Typing";
 import TypingTag from "components/common/element/TypingTag";
+import { TextBr } from "utils/textChk";
 import styled from "styled-components";
 import * as S from "./Styled";
 import * as SC from "assets/styles/StyledCm";
 import { colors, media } from "assets/styles/Variable";
-
+import profileImg from 'assets/images/profile.jpg'
 import sample from 'assets/images/sample.png'
-import { TextBr } from "utils/textChk";
+
 
 // Data 정보 통합 예정
 const aboutTit = ["ABOUT"];
@@ -36,7 +37,7 @@ function MainAbout({ sectionTitle, view }) {
             <AboutProfileImg className="about__profile-img">
               <AboutImgBox className="img">
                 <img src={sample} alt="" />
-                <span className="subImg"> </span>
+                <img src={profileImg} className="subImg" />
                 {/* <img src={} alt="" /> */}
               </AboutImgBox>
             </AboutProfileImg>
