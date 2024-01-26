@@ -1,6 +1,6 @@
 # Portfolio 📚
 
-## 🖥️ 📱 🔗 https://portfolio-th.vercel.app/
+## 🖥️ 📱 🔗 <a href="https://portfolio-th.vercel.app/" target="_blank">https://portfolio-th.vercel.app/</a>
 
 <br>
 <hr />
