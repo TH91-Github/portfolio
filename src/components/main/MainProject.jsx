@@ -105,6 +105,22 @@ const projectListData = [
     contents:["회사 인력 부족으로 초기 사이트 검수 담당으로 파견","신세계DF 사이트 전체 모니터링 및 검수","UI, 버튼 확인 및 오류 및 결제 테스트 - 오류(개발 전달)","프로모션 페이지 제작 및 Jquery로 간단한 게임 제작"],
     review:["사이트 전체 검수를 통해 담당 사이트에 대해 이해도가 높아졌고 불필요 기능, 잘못된 화면 등 오류 발생할 상황을 어느정도 미리 파악할 수 있게 되었습니다.","짧은 기간 내에 완성해야하는 이벤트 페이지도 작업하면서 기간 내 작업 및 자주 사용하는 슬라이드, 탭, 스크롤 등 모듈이 필요하다고 느끼게 되어 샘플 파일을 정리 및 수집하게 된 좋은 경험이었습니다."],
   },
+  {
+    title:"현대카드 회사소개 (구축)",
+    desc:"현대카드 회사소개 하드코딩 및 서브 페이지 작업 진행",
+    img:{
+      src:require('assets/images/project_1.png'),
+      bg:'dark'
+    },
+    company:"아이파트너즈",
+    link:"https://about.hyundaicard.com/ckh/ho/ckhho0101_01.hc",
+    people:"2",
+    participation:"30%",
+    date:"2016.08 ~ 2016.10",
+    skills:["HTML","CSS","Jquery"],
+    contents:["사이트 구축 보조 역할","디자인 시안 및 가이드라인 따라 페이지 코딩","전체 사이트 수정 진행 및 마무리 작업을 진행하였습니다."],
+    review:["개인 프로젝트가 아닌 회사에서 진행해보는 처음 프로젝트로 작업 시 유의점을 경험했습니다.","웹표준에 맞는 마크업, 클래스, 변수 등 이름과 선택자에 대해 배우고 경험할 수 있었던 프로젝트였습니다."],
+  },
 ]
 function MainProject ({sectionTitle, view}){
   const [isPopup, setPopup] = useState(false);
