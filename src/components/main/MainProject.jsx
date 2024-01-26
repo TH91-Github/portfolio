@@ -149,7 +149,7 @@ function MainProject ({sectionTitle, view}){
         </S.TitleBox>
         <ProjectCont className="project__cont">
           <ProjectList>
-            <MainProjectSwiper 
+            <MainProjectSwiper
               swiperData={projectListData}
               swiperClick={projectClick}
               swiperStart={view}
