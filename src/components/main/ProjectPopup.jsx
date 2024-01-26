@@ -1,9 +1,9 @@
 
 import * as SC from "assets/styles/StyledCm";
-import { SvgRecord, SvgSkills, SvgTalk } from "assets/styles/SvgPath";
 import { colors, media } from "assets/styles/Variable";
 import styled from "styled-components";
-
+import { SvgAEM, SvgCSS, SvgGit, SvgGitLab, SvgGulpJs, SvgHTML, SvgJQuery, SvgJS, SvgRecord, SvgSCSS, SvgSVN, SvgSkills, SvgTalk, SvgVue } from "assets/styles/SvgPath";
+import jenkinsImg from 'assets/images/jenkins.png';
 // 기본 데이터 값
 const projectDefalut = {title:"Title", desc:"TEST TEST", img:"없음",company:"회사 입력", link:"URL", people:"투입 인원", participation:"참여도",  date:"기간", skills:["TEST","기술"], contents:["작업내용"], review:["TEST"],};
 function ProjectPopup ({popupData}){
@@ -51,6 +51,21 @@ function ProjectPopup ({popupData}){
             {
               data.skills.map((item, idx)=>(
                 <li className="skills__lists-item" key={idx}>
+                  <span className="icon">
+                    {item === "HTML" && <SvgHTML />}
+                    {item === "CSS" && <SvgCSS />}
+                    {item === "SCSS" && <SvgSCSS />}
+                    {item === "Jquery" && <SvgJQuery />}
+                    {item === "JavaScript" && <SvgJS />}
+                    {item === "Canvas" && <SvgJS $fillColor={'#9bdc0f'} />}
+                    {item === "AEM" && <SvgAEM />}
+                    {item === "SVN" && <SvgSVN />}
+                    {item === "Gulp.js" && <SvgGulpJs />}
+                    {item === "Git" && <SvgGit />}
+                    {item === "GitLab" && <SvgGitLab />}
+                    {item === "Jenkins" && <img src={jenkinsImg} alt="jenkins logo" />}
+                    {item === "Vue" && <SvgVue />}
+                  </span>
                   <span>{item}</span>
                 </li>
               ))
@@ -218,12 +233,26 @@ const PopupCont = styled.div`
         flex-wrap:wrap;
         gap:20px;
         &-item{
+          display:flex;
+          align-items:center;
           padding:12px 25px;
           border-radius:25px;
           text-align:center;
           ${SC.insetShadow};
           & > span { 
             font-weight:700;
+          }
+          .icon {
+            display:inline-block;
+            position:relative;
+            margin-right:3px;
+            width:13px;
+            height:13px;
+            svg{
+              position:absolute;
+              top:0;
+              left:0;
+            }
           }
         }
       }

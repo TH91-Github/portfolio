@@ -70,7 +70,7 @@ const projectListData = [
     people:"3",
     participation:"60%",
     date:"2018.03 ~ 2021.05",
-    skills:["HTML","CSS","Jquery","JavaScript","SVN","Canvas","SVG"],
+    skills:["HTML","CSS","Jquery","JavaScript","SVN","Canvas"],
     contents:["사이트 운영 및 부분 리뉴얼, 매달 프로모션 이벤트 진행","Canvas, animation, transition, transform 효과"],
     review:[],
   },
