@@ -11,8 +11,8 @@ import { TextBr } from "utils/textChk";
 
 // Data 정보 통합 예정
 const aboutTit = ["ABOUT"];
-const profileJob = ["퍼블리셔", "프론트엔드","Publisher","Front-End"];
-const profileText = ["안녕하세요. 저는","김태훈입니다.", "과거엔 퍼블리셔, 현재와 미래에는<br /> 프론트엔드로 진행중이며","수동적인 개발자가 아닌 주도적으로", "문제해결을 하고 최고의 결과물을 위해 끊임없이","고민하는 개발자가 되려고 합니다.","😁"];
+const aboutJob = ["퍼블리셔", "프론트엔드","Publisher","Front-End"];
+const aboutText = ["안녕하세요.","김태훈입니다.", "과거엔 퍼블리셔, 현재와 미래에는<br /> 프론트엔드로 진행중이며","수동적인 개발자가 아닌 주도적으로", "문제해결을 하고 최고의 결과물을 위해 끊임없이","고민하는 개발자가 되려고 합니다.","😁"];
 
 function MainAbout({ sectionTitle, view }) {
   const isMobile = useSelector((state) => state.mobileChk);
@@ -42,17 +42,17 @@ function MainAbout({ sectionTitle, view }) {
             </AboutProfileImg>
           </AboutProfile>
           <AboutInfo className="about__info">
-            <AboutTextUp className="text"><span>{TextBr(profileText[0])}</span></AboutTextUp>
+            <AboutTextUp className="text"><span>{TextBr(aboutText[0])}</span></AboutTextUp>
             <AboutTextJob className="text-job">
               { 
                 view &&
                 <p className="job">
-                  <Typing typingData={profileJob} delay={2500} pauseTime={1000} infinite={true} />
+                  <Typing typingData={aboutJob} delay={2500} pauseTime={1000} infinite={true} />
                 </p> 
               }
             </AboutTextJob>
             {
-              profileText.map((item, idx) => (
+              aboutText.map((item, idx) => (
                 idx > 0 &&
                 <AboutTextUp 
                   className="text"
