@@ -7,8 +7,8 @@ import * as S from "./Styled";
 import * as SC from "assets/styles/StyledCm";
 import { colors, media } from "assets/styles/Variable";
 import profileImg from 'assets/images/profile.jpg'
+import profileImg2 from 'assets/images/profile2.jpg'
 import sample from 'assets/images/sample.png'
-
 
 // Data 정보 통합 예정
 const aboutTit = ["ABOUT"];
@@ -36,8 +36,8 @@ function MainAbout({ sectionTitle, view }) {
           <AboutProfile className="about__profile">
             <AboutProfileImg className="about__profile-img">
               <AboutImgBox className="img">
-                <img src={sample} alt="" />
-                <img src={sample} className="subImg" alt=""/>
+                <img src={profileImg} alt="" />
+                <img src={profileImg2} className="subImg" alt=""/>
                 {/* <img src={} alt="" /> */}
               </AboutImgBox>
             </AboutProfileImg>
