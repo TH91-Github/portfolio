@@ -53,15 +53,15 @@ function MainProjectSwiper ({swiperData, swiperClick, swiperStart}){
               <ThumbnailImg className="thumbnail" $imgBg={item.img.bg && item.img.bg}>
                 {
                   item.img 
-                  ? <img src={item.img.src} alt={item.title} />
+                  ? <img src={require(`assets/images/${item.img.src}`)} alt={item.title} />
                   : <div className="substitution"><span>{item.title}</span></div>
                 }
               </ThumbnailImg>
               <div className="btn-wrap">
                 <PopupBtn 
                   type="button"
-                  onFocus={(e) => focusIn(idx)}
-                  onBlur={(e)=> focusOut(idx)}
+                  onFocus={() => focusIn(idx)}
+                  onBlur={()=> focusOut(idx)}
                   onClick={()=>swiperClick(item,idx)}
                   className={`${isFocus === idx?'isFocus':''}`}>
                   <span>자세히 보기</span>

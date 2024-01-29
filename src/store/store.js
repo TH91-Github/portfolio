@@ -1,8 +1,8 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit'
 
 const allData = createSlice({
-  name: "Data Load",
-  initialState: ['default'],
+  name: "Data",
+  initialState: null,
   reducers: {
     sSetDataAll(state, propsName){
       // console.log(propsName)

@@ -25,8 +25,8 @@ function Header ({headeList}) {
     const selectBox = document.getElementById(selectName);
     let selectTop = window.pageYOffset + selectBox.getBoundingClientRect().top;
 
-    if(headeList[1].title === selectName){ // About - sticky 
-      const VisualBox = document.getElementById(headeList[0].title);
+    if(headeList[1] === selectName){ // About - sticky 
+      const VisualBox = document.getElementById(headeList[0]);
       const VisualTop = window.pageYOffset + VisualBox.getBoundingClientRect().top;
       const VisualH = VisualBox.offsetHeight;
       selectTop = VisualTop + VisualH;
@@ -45,9 +45,9 @@ function Header ({headeList}) {
             headeList.map((item,idx) => 
               idx > 0 && <NavBtn
                 $scrollZero={scrollZero}
-                onClick={() => navClick(item.title)}
+                onClick={() => navClick(item)}
                 key={idx}>
-                {item.title}
+                {item}
               </NavBtn>
             )
           }

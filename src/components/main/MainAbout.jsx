@@ -1,22 +1,18 @@
 import { useSelector } from "react-redux";
+import { TextBr } from "utils/textChk";
 import Typing from "components/common/element/Typing";
 import TypingTag from "components/common/element/TypingTag";
-import { TextBr } from "utils/textChk";
 import styled from "styled-components";
 import * as S from "./Styled";
 import * as SC from "assets/styles/StyledCm";
 import { colors, media } from "assets/styles/Variable";
 import profileImg from 'assets/images/profile.jpg'
 import profileImg2 from 'assets/images/profile2.jpg'
-import sample from 'assets/images/sample.png'
-
-// Data 정보 통합 예정
-const aboutTit = ["ABOUT"];
-const aboutJob = ["카멜레온 같은", "트렌드에 미친 남자","배움을 중요시하는","프론트엔드 개발자"];
-const aboutText = ["안녕하세요.","김태훈입니다.","하루하루 급변하는 IT 패러다임 속에서 <br />신기술 지식을 빠르게 흡수하여 <br /> 카멜레온이 다양한 색을 표현하는 것처럼 <br />신기술을 여러 방향으로 <br />적용할 수 있어야 한다고 생각합니다.","항상 새로운 트렌드에 관심이 많고 <br /> 현재보단 나아감을 지향하며 끝없이 성장하기 위해 <br />노력하고 있습니다.","😁"];
 
 function MainAbout({ sectionTitle, view }) {
+  const portfolioData = useSelector((state) => state.allData);
   const isMobile = useSelector((state) => state.mobileChk);
+  console.log(portfolioData)
   const typingOpt = {
     fontSize: isMobile? '32px': '48px',
     fontWeight: 600,
@@ -27,7 +23,7 @@ function MainAbout({ sectionTitle, view }) {
       <S.MainInner>
         <S.TitleBox className="about__header">
           <TypingTag
-            titData={aboutTit}
+            titData={portfolioData.about.title}
             view={view}
             typingOpt={typingOpt}
           />
@@ -38,24 +34,23 @@ function MainAbout({ sectionTitle, view }) {
               <AboutImgBox className="img">
                 <img src={profileImg} alt="" />
                 <img src={profileImg2} className="subImg" alt=""/>
-                {/* <img src={} alt="" /> */}
               </AboutImgBox>
             </AboutProfileImg>
           </AboutProfile>
           <AboutInfo className="about__info">
-            <AboutTextUp className="text"><span>{TextBr(aboutText[0])}</span></AboutTextUp>
+            <AboutTextUp className="text"><span>{TextBr(portfolioData.about.desc[0])}</span></AboutTextUp>
             <AboutTextPoint className="text-point">
               { 
                 view &&
                 <p className="text">
                   <span>
-                    <Typing typingData={aboutJob} delay={2500} pauseTime={1000} infinite={true} />
+                    <Typing typingData={portfolioData.about.pointText} delay={2500} pauseTime={1000} infinite={true} />
                   </span>
                 </p> 
               }
             </AboutTextPoint>
             {
-              aboutText.map((item, idx) => (
+              portfolioData.about.desc.map((item, idx) => (
                 idx > 0 &&
                 <AboutTextUp 
                   className="text"
@@ -90,6 +85,9 @@ const AboutCont = styled.div`
     .img::after, .img img, .text span,
     .text-point {
       animation-play-state: running;
+    }
+    .subImg{
+      display:block;
     }
   }
   &>div{
@@ -198,6 +196,7 @@ const AboutImgBox = styled.span`
     animation-play-state: paused;
   }
   .subImg {
+    display:none;
     position:absolute;
     top:0;
     left:0;
@@ -205,7 +204,7 @@ const AboutImgBox = styled.span`
     height:100%;
     background:#000;
     opacity:0;
-    animation: fadeImg 8s 3s infinite both;
+    animation: fadeImg 8s 2s infinite both;
     @keyframes fadeImg{
       0%, 37.5%, 100%{
         opacity:0;
