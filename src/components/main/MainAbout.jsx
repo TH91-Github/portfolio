@@ -12,7 +12,6 @@ import profileImg2 from 'assets/images/profile2.jpg'
 function MainAbout({ sectionTitle, view }) {
   const portfolioData = useSelector((state) => state.allData);
   const isMobile = useSelector((state) => state.mobileChk);
-  console.log(portfolioData)
   const typingOpt = {
     fontSize: isMobile? '32px': '48px',
     fontWeight: 600,
