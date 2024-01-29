@@ -3,7 +3,7 @@ import TypingTag from "components/common/element/TypingTag";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 
-const endText = ["TEST.", "TEST2"];
+const endText = ["고생하셨습니다.", "/감사합니다."];
 
 function MainEnd({view}) {
   const isMobile = useSelector((state) => state.mobileChk);

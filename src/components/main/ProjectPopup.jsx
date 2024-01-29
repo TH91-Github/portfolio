@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { SvgAEM, SvgCSS, SvgGit, SvgGitLab, SvgGulpJs, SvgHTML, SvgJQuery, SvgJS, SvgRecord, SvgSCSS, SvgSVN, SvgSkills, SvgTalk, SvgVue } from "assets/styles/SvgPath";
 import jenkinsImg from 'assets/images/jenkins.png';
 // 기본 데이터 값
-const projectDefalut = {title:"Title", desc:"TEST TEST", img:"없음",company:"회사 입력", link:"URL", people:"투입 인원", participation:"참여도",  date:"기간", skills:["TEST","기술"], contents:["작업내용"], review:["TEST"],};
+const projectDefalut = {title:"Title", desc:"TEST TEST", img:"없음",company:"회사 입력", link:"URL", people:"투입 인원", participation:"참여도",  date:"기간", skills:["TEST","기술"], contents:["작업내용"], role:["TEST"],};
 function ProjectPopup ({popupData}){
   const data = popupData ?? projectDefalut
   return(
@@ -76,11 +76,11 @@ function ProjectPopup ({popupData}){
           <div className="review-box">
             <p className="tit">
               <span className="icon"><SvgTalk /></span>
-              <span>프로젝트 업무</span>
+              <span>프로젝트 업무 및 역할</span>
             </p>
             <ul className="detail__lists">
               <li className="detail__lists-item">
-                <p className="tit-s">프로젝트 업무</p>
+                <p className="tit-s">프로젝트 범위 및 내용</p>
                 {
                   data.contents.map((item,idx)=>(
                     <p className="txt" key={idx}>{item}</p>
@@ -88,9 +88,9 @@ function ProjectPopup ({popupData}){
                 }
               </li>
               <li className="detail__lists-item">
-                <p className="tit-s">프로젝트 소감</p>
+                <p className="tit-s">프로젝트 내 역할</p>
                 {
-                  data.review.map((item,idx)=>(
+                  data.role.map((item,idx)=>(
                     <p className="txt" key={idx}>{item}</p>
                   ))
                 }

@@ -5,7 +5,7 @@ import TypingTag from "components/common/element/TypingTag";
 import { colors } from "assets/styles/Variable";
 
 // Data 정보 통합 예정
-const VisualText = ["Portfolio","시작할게요","Hello"];
+const VisualText = ["Hello","Hola","안녕하세요."];
 
 function MainVisual({view}){
   const [nextStage, setNextStage] = useState(false);
@@ -36,7 +36,6 @@ function MainVisual({view}){
             <span>Scroll</span>
           </TextScroll>
       }
-      
     </VisualWrap>
   )
 }

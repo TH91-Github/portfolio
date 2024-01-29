@@ -12,8 +12,8 @@ import sample from 'assets/images/sample.png'
 
 // Data 정보 통합 예정
 const aboutTit = ["ABOUT"];
-const aboutJob = ["퍼블리셔", "프론트엔드","Publisher","Front-End"];
-const aboutText = ["안녕하세요.","김태훈입니다.", "과거엔 퍼블리셔, 현재와 미래에는<br /> 프론트엔드로 진행중이며","수동적인 개발자가 아닌 주도적으로", "문제해결을 하고 최고의 결과물을 위해 끊임없이","고민하는 개발자가 되려고 합니다.","😁"];
+const aboutJob = ["카멜레온 같은", "트렌드에 미친 남자","배움을 중요시하는","프론트엔드 개발자"];
+const aboutText = ["안녕하세요.","김태훈입니다.","하루하루 급변하는 IT 패러다임 속에서 <br />신기술 지식을 빠르게 흡수하여 <br /> 카멜레온이 다양한 색을 표현하는 것처럼 <br />신기술을 여러 방향으로 <br />적용할 수 있어야 한다고 생각합니다.","항상 새로운 트렌드에 관심이 많고 <br /> 현재보단 나아감을 지향하며 끝없이 성장하기 위해 <br />노력하고 있습니다.","😁"];
 
 function MainAbout({ sectionTitle, view }) {
   const isMobile = useSelector((state) => state.mobileChk);
@@ -37,21 +37,23 @@ function MainAbout({ sectionTitle, view }) {
             <AboutProfileImg className="about__profile-img">
               <AboutImgBox className="img">
                 <img src={sample} alt="" />
-                <img src={profileImg} className="subImg" />
+                <img src={sample} className="subImg" alt=""/>
                 {/* <img src={} alt="" /> */}
               </AboutImgBox>
             </AboutProfileImg>
           </AboutProfile>
           <AboutInfo className="about__info">
             <AboutTextUp className="text"><span>{TextBr(aboutText[0])}</span></AboutTextUp>
-            <AboutTextJob className="text-job">
+            <AboutTextPoint className="text-point">
               { 
                 view &&
-                <p className="job">
-                  <Typing typingData={aboutJob} delay={2500} pauseTime={1000} infinite={true} />
+                <p className="text">
+                  <span>
+                    <Typing typingData={aboutJob} delay={2500} pauseTime={1000} infinite={true} />
+                  </span>
                 </p> 
               }
-            </AboutTextJob>
+            </AboutTextPoint>
             {
               aboutText.map((item, idx) => (
                 idx > 0 &&
@@ -59,7 +61,7 @@ function MainAbout({ sectionTitle, view }) {
                   className="text"
                   $delay={((idx+1)*0.2)+1}
                   key={idx}>
-                  <span>{TextBr(item, 'm-br')}</span>
+                  <span>{TextBr(item)}</span>
                 </AboutTextUp>
               ))
             }
@@ -86,7 +88,7 @@ const AboutCont = styled.div`
   &.on {
     ${SC.animation(SC.fadeIn, 1.5, 'ease', .5)}
     .img::after, .img img, .text span,
-    .text-job::before, .text-job::after {
+    .text-point {
       animation-play-state: running;
     }
   }
@@ -228,13 +230,15 @@ const AboutInfo = styled.div`
     text-align:center;
   }
 `;
-const AboutTextJob = styled.div`
+const AboutTextPoint = styled.div`
   display:inline-block;
   overflow:hidden;
   position:relative;
   min-width:100px;
-  height:80px;
+  min-height:80px;
   padding:0 30px;
+  animation:upAni 1.2s 1.1s both;
+  animation-play-state: paused;
   &::before, &::after {
     position:absolute;
     top:0;
@@ -244,16 +248,14 @@ const AboutTextJob = styled.div`
     line-height:80px;
     color:${colors.blue};
     content:"[";
-    animation:upAni 1.2s 1.1s both;
-    animation-play-state: paused;
   }
   &::after{
     left: auto;
     right:0;
     content:"]";
   }
-  .job {
-    font-size:56px;
+  .text {
+    font-size:40px;
     font-weight:550;
     line-height:80px;
   }
@@ -261,14 +263,27 @@ const AboutTextJob = styled.div`
     0% {transform:translateY(100px); opacity:0;}
     100%{transform:translateY(0); opacity:1;}
   }
-  ${media.mo}{
-    height:56px;
+  ${media.tab}{
+    min-height:48px;
     &::before, &::after{
-      line-height:56px;
+      font-size:48px;
+      line-height:48px;
     }
-    .job {
-      font-size:42px;
-      line-height:56px;
+    .text {
+      font-size:32px;
+      line-height:48px;
+    }
+  }
+  ${media.mo}{
+    min-height:36px;
+    padding:0 15px;
+    &::before, &::after{
+      font-size:36px;
+      line-height:36px;
+    }
+    .text {
+      font-size:24px;
+      line-height:36px;
     }
   }
 `;

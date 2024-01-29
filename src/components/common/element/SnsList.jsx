@@ -23,7 +23,7 @@ function SnsList ({iconBg}) {
       <ul className="sns__lists">
         {
           slist.map((item,idx)=>{
-            return  <li classNmae="sns__lists-item" key={idx}>
+            return  <li className="sns__lists-item" key={idx}>
               <a href={item.url} target="_blank" rel="noopener noreferrer" className="sns-icon">
                 {item.tit === "Github" && <SvgGithub $fillColor={snsIconBg}/>}
                 {item.tit === "Velog" && <SvgVelog $fillColor={snsIconBg}/>}
