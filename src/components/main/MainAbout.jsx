@@ -18,7 +18,7 @@ function MainAbout({ sectionTitle, view }) {
     speed: 150,
   }
   return (
-    <AboutWrap id={sectionTitle.title} className="about">
+    <AboutWrap id={sectionTitle} className="about">
       <S.MainInner>
         <S.TitleBox className="about__header">
           <TypingTag

@@ -12,6 +12,7 @@ import { useOutletContext } from "react-router-dom";
 const percentage = 0.25;
 function MainTemplate() {
   const {MainList} = useOutletContext();
+  console.log(MainList)
   return (
     <MainWrap className="main">
       <Observer percentage={percentage}>

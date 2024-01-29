@@ -24,7 +24,7 @@ function MainSkills({sectionTitle, view}) {
     setActiveNum(idx)
   }
   return (
-    <SkillsWrap id={sectionTitle.title} className={'skills ' + (view ? 'observerOn on':'')}>
+    <SkillsWrap id={sectionTitle} className={'skills ' + (view ? 'observerOn on':'')}>
       <S.MainInner>
         <S.TitleBox className="skills__header">
           <TypingTag 

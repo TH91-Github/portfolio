@@ -25,7 +25,7 @@ function MainProject ({sectionTitle, view}){
     setPopup(true);
   }
   return (
-    <ProjectWrap id={sectionTitle.title} className="project">
+    <ProjectWrap id={sectionTitle} className="project">
       <S.MainInner className="project__inner">
         <S.TitleBox className="project__header">
           <TypingTag 
