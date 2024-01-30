@@ -22,7 +22,7 @@ function MainAbout({ sectionTitle, view }) {
       <S.MainInner>
         <S.TitleBox className="about__header">
           <TypingTag
-            titData={portfolioData.about.title}
+            titData={[portfolioData.about.title]}
             view={view}
             typingOpt={typingOpt}
           />

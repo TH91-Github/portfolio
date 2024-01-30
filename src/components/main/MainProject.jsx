@@ -29,7 +29,7 @@ function MainProject ({sectionTitle, view}){
       <S.MainInner className="project__inner">
         <S.TitleBox className="project__header">
           <TypingTag 
-            titData={portfolioData.project.title}
+            titData={[portfolioData.project.title]}
             view={view} 
             typingOpt={typingOpt}
           />

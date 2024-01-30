@@ -28,7 +28,7 @@ function MainSkills({sectionTitle, view}) {
       <S.MainInner>
         <S.TitleBox className="skills__header">
           <TypingTag 
-            titData={portfolioData.skills.title}
+            titData={[portfolioData.skills.title]}
             view={view} 
             typingOpt={typingOpt}
           />
