@@ -22,11 +22,11 @@ function Header ({headeList}) {
     window.scrollTo({ top: 0, behavior: 'smooth' }); 
   }
   const navClick = (selectName) =>{
-    const selectBox = document.getElementById(selectName);
+    const selectBox = document.getElementById(selectName); // ref 개선 
     let selectTop = window.pageYOffset + selectBox.getBoundingClientRect().top;
 
     if(headeList[1] === selectName){ // About - sticky 
-      const VisualBox = document.getElementById(headeList[0]);
+      const VisualBox = document.getElementById(headeList[0]); // ref 개선
       const VisualTop = window.pageYOffset + VisualBox.getBoundingClientRect().top;
       const VisualH = VisualBox.offsetHeight;
       selectTop = VisualTop + VisualH;
